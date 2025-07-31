@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OXVA</title>
+    <title>OXPERIENCE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
@@ -51,6 +51,7 @@
         class="h-[130svh] w-auto"
       />
     </div>
+    
     <div
       class="absolute top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
@@ -130,6 +131,24 @@
     <section
       class="h-[200svh] w-full relative z-[0] flex flex-col px-[8svw] overflow-hidden"
     >
+    <div
+      class="absolute top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-a.gif"
+        alt="animation-b"
+        class="h-[160svh] w-auto"
+      />
+    </div>
+    <div
+    class="absolute top-[130svh] right-[-70svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+  >
+    <img
+      src="./assets/images/animation-c.gif"
+      alt="animation-a"
+      class="h-[100svh] w-auto"
+    />
+  </div>
       <canvas
         id="ticketBackground"
         class="absolute inset-0 w-full h-[100svh] z-[-1]"
@@ -161,35 +180,47 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col mb-[5svh] ml-[5svw]">
+      `
+      <div class="flex flex-col mb-[5svh] ml-[5svw] z-[50] relative">
         <div class="uppercase font-bold text-[4svh] tracking-wider mt-[10svh]">
           Venue Information
         </div>
-        <div class="w-full h-full flex items-center">
-                     <div
-             class="h-[60svh] w-[130svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
-           >
-             <img
-               src="./assets/images/venue-1.png"
-               alt="venue-1"
-               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
-               id="venue-1"
-             />
-             <img
-               src="./assets/images/venue-2.png"
-               alt="venue-2"
-               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-               id="venue-2"
-             />
-             <img
-               src="./assets/images/venue-3.png"
-               alt="venue-3"
-               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-               id="venue-3"
-             />
+        <!-- Navigation dots -->
+        <div class="absolute bottom-[15svh] left-[62svh] transform -translate-x-1/2 flex space-x-[2svh] z-[70]">
+            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="0"></div>
+            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="1"></div>
+            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="2"></div>
+          </div>
+        <div class="w-full h-full flex items-center relat">
+          <div
+            class="h-[60svh] w-[130svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+          >
+            <img
+              src="./assets/images/venue-1.png"
+              alt="venue-1"
+              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
+              id="venue-1"
+            />
+            <img
+              src="./assets/images/venue-2.png"
+              alt="venue-2"
+              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+              id="venue-2"
+            />
+            <img
+              src="./assets/images/venue-3.png"
+              alt="venue-3"
+              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+              id="venue-3"
+            />
+
+                         <!-- Gradient ripple overlay -->
+             <div
+               class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
+               id="ripple-overlay"
+             ></div>
              
-             <!-- Gradient ripple overlay -->
-             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out" id="ripple-overlay"></div>
+             
            </div>
         </div>
       </div>
@@ -540,13 +571,28 @@
       // Venue slideshow with gradient ripple effect
       function initVenueSlideshow() {
         const images = [
-          document.getElementById('venue-1'),
-          document.getElementById('venue-2'),
-          document.getElementById('venue-3')
+          document.getElementById("venue-1"),
+          document.getElementById("venue-2"),
+          document.getElementById("venue-3"),
         ];
-        const ripple = document.getElementById('ripple-overlay');
+        const ripple = document.getElementById("ripple-overlay");
+        const dots = document.querySelectorAll('[data-index]');
         let currentIndex = 0;
         let isTransitioning = false;
+
+        function updateDots(index) {
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              // Active dot
+              dot.style.backgroundColor = '#e3fd55';
+              dot.style.transform = 'scale(1.2)';
+            } else {
+              // Inactive dot
+              dot.style.backgroundColor = 'white';
+              dot.style.transform = 'scale(1)';
+            }
+          });
+        }
 
         function showImage(index) {
           if (isTransitioning) return;
@@ -554,17 +600,20 @@
 
           // Hide all images
           images.forEach((img, i) => {
-            img.style.opacity = '0';
+            img.style.opacity = "0";
           });
 
           // Show current image
-          images[index].style.opacity = '1';
+          images[index].style.opacity = "1";
+
+          // Update dots
+          updateDots(index);
 
           // Trigger ripple effect
-          ripple.style.transform = 'translateX(100%)';
-          
+          ripple.style.transform = "translateX(100%)";
+
           setTimeout(() => {
-            ripple.style.transform = 'translateX(-100%)';
+            ripple.style.transform = "translateX(-100%)";
           }, 100);
 
           setTimeout(() => {
@@ -577,12 +626,24 @@
           showImage(currentIndex);
         }
 
-        // Auto-advance every 4 seconds
+                // Auto-advance every 4 seconds
         setInterval(nextImage, 5000);
 
         // Manual click to advance
-        const venueContainer = document.querySelector('.group');
-        venueContainer.addEventListener('click', nextImage);
+        const venueContainer = document.querySelector('[id^="venue-"]').parentElement;
+        venueContainer.addEventListener("click", nextImage);
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent triggering venue container click
+            currentIndex = index;
+            showImage(currentIndex);
+          });
+        });
+
+        // Initialize first dot as active
+        updateDots(0);
       }
 
       // Initialize venue slideshow
