@@ -696,7 +696,13 @@
       function updateCanvasPosition() {
         const canvas = document.getElementById("ticketBackground");
         const ticketSection = canvas.closest("section");
+        const venueSection = document.getElementById("venue");
         const rect = ticketSection.getBoundingClientRect();
+
+        // Calculate combined height of ticket and venue sections
+        const ticketHeight = ticketSection.offsetHeight;
+        const venueHeight = venueSection.offsetHeight;
+        const combinedHeight = ticketHeight + venueHeight;
 
         if (rect.top <= 0) {
           // Ticket section is at or above the top of viewport
@@ -704,14 +710,14 @@
           canvas.style.top = "0";
           canvas.style.left = "0";
           canvas.style.width = "100%";
-          canvas.style.height = "120svh";
+          canvas.style.height = `${combinedHeight}px`;
         } else {
           // Ticket section is below the top of viewport
           canvas.style.position = "absolute";
           canvas.style.top = "0";
           canvas.style.left = "0";
           canvas.style.width = "100%";
-          canvas.style.height = "120svh";
+          canvas.style.height = `${combinedHeight}px`;
         }
       }
 
