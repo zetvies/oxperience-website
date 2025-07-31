@@ -87,10 +87,10 @@
       </div>
     </section>
     <section
-      class="flex w-full h-[90svh] justify-center items-center px-[8svw] py-[8svh] relative z-[50] mt-[20svh]"
+      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[8svh]  relative z-[50] mt-[20svh]"
     >
       <div
-        class="flex flex-col text-left flex-1 gap-[5svh] border-r-[0.25svh] pr-[10svh] h-full"
+        class="flex flex-col text-left flex-1 gap-[5svh] h-[80svh] border-r-[0.25svh] pr-[10svh]"
       >
         <div class="uppercase font-bold text-[4svh] tracking-wider">About</div>
         <div
@@ -113,7 +113,7 @@
         </div>
       </div>
       <div
-        class="flex flex-col text-left flex-1 pl-[10svh] justify-start h-full"
+        class="flex flex-col text-left flex-1 pl-[10svh] justify-start h-[80svh]"
       >
         <div class="uppercase font-bold text-[10svh] leading-[11svh]">
           JKT <br />
@@ -123,28 +123,43 @@
 
         <div class="w-[51svh] h-[.3svh] bg-white my-[4svh]" />
       </div>
+      <!-- <div
+        class="absolute bottom-0 left-0 w-full h-[10svh] bg-gradient-to-b from-transparent to-[#c4341e] z-[0]"
+      ></div> -->
     </section>
     <section
-      class="h-[80svh] w-full mt-[20svh] relative z-[50] flex flex-col px-[8svw]"
+      class="h-[110svh] w-full relative z-[0] flex flex-col px-[8svw] overflow-hidden"
     >
-      <div class="uppercase font-bold text-[4svh] tracking-wider">
+      <canvas
+        id="ticketBackground"
+        class="absolute inset-0 w-full h-full z-[-1]"
+        style="background-color: #c33723"
+      ></canvas>
+      
+      <div
+        class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[0]"
+      ></div>
+      <div class="uppercase font-bold text-[4svh] tracking-wider mt-[30svh]">
         Ticket Information
       </div>
-      <div class="w-full h-full flex justify-center items-center ">
-        <div class="h-[20svh] w-[68svh] relative cursor-pointer group flex justify-center items-center">
-            <img
+      <div class="w-full h-full flex justify-center items-center">
+        <div
+          class="h-[20svh] w-[68svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center"
+        >
+          <img
             src="./assets/images/ticket-outline.svg"
             alt="ticket-button"
             class="absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300 group-hover:opacity-0"
           />
           <img
-          src="./assets/images/ticket-fill.svg"
-          alt="ticket-button"
-          class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        />
-        <div class="font-bold text-[6svh] tracking-wider uppercase">Buy Ticket</div>
+            src="./assets/images/ticket-fill.svg"
+            alt="ticket-button"
+            class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+          <div class="font-bold text-[6svh] tracking-wider uppercase">
+            Buy Ticket
+          </div>
         </div>
-        
       </div>
     </section>
 
@@ -249,6 +264,225 @@
 
       // Initial update after a short delay
       setTimeout(updateCountdown, 500);
+
+      // WebGL Background for Ticket Section
+      function initTicketBackground() {
+        const canvas = document.getElementById("ticketBackground");
+
+        if (!canvas) {
+          console.warn("Canvas not found");
+          return;
+        }
+
+        const gl =
+          canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+
+        if (!gl) {
+          console.warn("WebGL not supported");
+          return;
+        }
+
+        console.log("WebGL initialized successfully");
+
+        // Vertex shader
+        const vertexShaderSource = `
+          attribute vec2 a_position;
+          void main() {
+            gl_Position = vec4(a_position, 0.0, 1.0);
+          }
+        `;
+
+        // Fragment shader with soft spotlights
+        const fragmentShaderSource = `
+          precision mediump float;
+          uniform vec2 u_resolution;
+          uniform float u_time;
+          
+          vec3 blue = vec3(0.2, 0.0, 1.0);          // More vivid blue
+          vec3 yellow = vec3(1.0, 1.0, 0.0);        // Pure bright yellow
+          vec3 white = vec3(1.0, 1.0, 1.0);         // Pure white
+          vec3 red = vec3(0.765, 0.216, 0.137);     // #c33723 - original red
+          
+          // Perlin noise function
+          float hash(vec2 p) {
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+          }
+          
+          float noise(vec2 p) {
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            f = f * f * (3.0 - 2.0 * f);
+            
+            float a = hash(i);
+            float b = hash(i + vec2(1.0, 0.0));
+            float c = hash(i + vec2(0.0, 1.0));
+            float d = hash(i + vec2(1.0, 1.0));
+            
+            return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+          }
+          
+          float perlinNoise(vec2 p) {
+            float n = 0.0;
+            float amplitude = 1.0;
+            float frequency = 1.0;
+            
+            for(int i = 0; i < 4; i++) {
+              n += amplitude * noise(p * frequency);
+              amplitude *= 0.5;
+              frequency *= 2.0;
+            }
+            
+            return n;
+          }
+          
+          float softSpotlight(vec2 uv, vec2 center, float radius, float softness, float rotation) {
+            // Rotate UV coordinates around center
+            vec2 rotated = center + mat2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation)) * (uv - center);
+            float dist = distance(rotated, center);
+            
+            // Create elliptical spotlight for more visible rotation
+            vec2 offset = (rotated - center) / radius;
+            float elliptical = length(offset * vec2(1.0, 0.6)); // Make it elliptical
+            return smoothstep(1.0, softness, elliptical);
+          }
+          
+          void main() {
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+            
+            // Start with red background
+            vec3 color = red;
+            
+            // Base positions with Perlin noise movement (closer to corners)
+            vec2 blueBase = vec2(0.13, 0.87);   // Top left (flipped Y)
+            vec2 yellowBase = vec2(0.87, 0.13); // Bottom right (flipped Y)
+            vec2 whiteBase = vec2(0.13, 0.13);  // Bottom left (flipped Y)
+            
+            // Reduced Perlin noise movement
+            float moveRange = 0.08;
+            vec2 bluePos = blueBase + vec2(
+              perlinNoise(vec2(u_time * 0.3, 0.0)) * moveRange,
+              perlinNoise(vec2(0.0, u_time * 0.2)) * moveRange
+            );
+            
+            vec2 yellowPos = yellowBase + vec2(
+              perlinNoise(vec2(u_time * 0.4, 100.0)) * moveRange,
+              perlinNoise(vec2(100.0, u_time * 0.3)) * moveRange
+            );
+            
+            vec2 whitePos = whiteBase + vec2(
+              perlinNoise(vec2(u_time * 0.5, 200.0)) * moveRange,
+              perlinNoise(vec2(200.0, u_time * 0.4)) * moveRange
+            );
+            
+            // Rotating spotlights with specific offsets
+            float blueRotation = u_time * 0.5;
+            float yellowRotation = radians(10.0);
+            float whiteRotation = radians(-20.0);
+            
+            // Create soft spotlights with rotation (blue is bigger)
+            float blueLight = softSpotlight(uv, bluePos, 0.6, 0.4, blueRotation);
+            float yellowLight = softSpotlight(uv, yellowPos, 0.35, 0.25, yellowRotation);
+            float whiteLight = softSpotlight(uv, whitePos, 0.3, 0.2, whiteRotation);
+            
+            // Add spotlights to red background with higher intensity
+            color = mix(color, blue, blueLight * 0.8);
+            color = mix(color, yellow, yellowLight * 0.9);
+            color = mix(color, white, whiteLight * 0.7);
+            
+            gl_FragColor = vec4(color, 1.0);
+          }
+        `;
+
+        // Create shaders
+        function createShader(type, source) {
+          const shader = gl.createShader(type);
+          gl.shaderSource(shader, source);
+          gl.compileShader(shader);
+
+          if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.error(
+              "Shader compilation error:",
+              gl.getShaderInfoLog(shader)
+            );
+            gl.deleteShader(shader);
+            return null;
+          }
+          return shader;
+        }
+
+        const vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(
+          gl.FRAGMENT_SHADER,
+          fragmentShaderSource
+        );
+
+        // Create program
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          console.error(
+            "Program linking error:",
+            gl.getProgramInfoLog(program)
+          );
+          return;
+        }
+
+        gl.useProgram(program);
+
+        // Set clear color to red background
+        gl.clearColor(0.765, 0.216, 0.137, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        // Enable blending for smooth color transitions
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+        // Set up geometry
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, "a_position");
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        // Get uniform locations
+        const resolutionLocation = gl.getUniformLocation(
+          program,
+          "u_resolution"
+        );
+        const timeLocation = gl.getUniformLocation(program, "u_time");
+
+        // Resize handler
+        function resize() {
+          canvas.width = canvas.clientWidth * window.devicePixelRatio;
+          canvas.height = canvas.clientHeight * window.devicePixelRatio;
+          gl.viewport(0, 0, canvas.width, canvas.height);
+          gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        // Animation loop
+        function render(time) {
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.uniform1f(timeLocation, time * 0.001);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+      }
+
+      // Initialize WebGL background immediately and when page loads
+      initTicketBackground();
+      window.addEventListener("load", initTicketBackground);
     </script>
   </body>
 </html>
