@@ -87,7 +87,7 @@
       </div>
     </section>
     <section
-      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[8svh]  relative z-[50] mt-[20svh]"
+      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[8svh] relative z-[50] mt-[20svh]"
     >
       <div
         class="flex flex-col text-left flex-1 gap-[5svh] h-[80svh] border-r-[0.25svh] pr-[10svh]"
@@ -128,14 +128,14 @@
       ></div> -->
     </section>
     <section
-      class="h-[110svh] w-full relative z-[0] flex flex-col px-[8svw] overflow-hidden"
+      class="h-[200svh] w-full relative z-[0] flex flex-col px-[8svw] overflow-hidden"
     >
       <canvas
         id="ticketBackground"
-        class="absolute inset-0 w-full h-full z-[-1]"
+        class="absolute inset-0 w-full h-[100svh] z-[-1]"
         style="background-color: #c33723"
       ></canvas>
-      
+
       <div
         class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[0]"
       ></div>
@@ -159,6 +159,38 @@
           <div class="font-bold text-[6svh] tracking-wider uppercase">
             Buy Ticket
           </div>
+        </div>
+      </div>
+      <div class="flex flex-col mb-[5svh] ml-[5svw]">
+        <div class="uppercase font-bold text-[4svh] tracking-wider mt-[10svh]">
+          Venue Information
+        </div>
+        <div class="w-full h-full flex items-center">
+                     <div
+             class="h-[60svh] w-[130svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+           >
+             <img
+               src="./assets/images/venue-1.png"
+               alt="venue-1"
+               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
+               id="venue-1"
+             />
+             <img
+               src="./assets/images/venue-2.png"
+               alt="venue-2"
+               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+               id="venue-2"
+             />
+             <img
+               src="./assets/images/venue-3.png"
+               alt="venue-3"
+               class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+               id="venue-3"
+             />
+             
+             <!-- Gradient ripple overlay -->
+             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out" id="ripple-overlay"></div>
+           </div>
         </div>
       </div>
     </section>
@@ -443,18 +475,21 @@
         const frameInterval = 1000 / targetFPS;
         let isVisible = true;
         let isInViewport = true;
-        
+
         // Pause rendering when tab is not visible
-        document.addEventListener('visibilitychange', () => {
+        document.addEventListener("visibilitychange", () => {
           isVisible = !document.hidden;
         });
-        
+
         // Pause rendering when not in viewport
-        const observer = new IntersectionObserver((entries) => {
-          isInViewport = entries[0].isIntersecting;
-        }, { threshold: 0.1 });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            isInViewport = entries[0].isIntersecting;
+          },
+          { threshold: 0.1 }
+        );
         observer.observe(canvas);
-        
+
         function render(time) {
           if (isVisible && isInViewport && time - lastTime >= frameInterval) {
             gl.clear(gl.COLOR_BUFFER_BIT);
@@ -471,6 +506,87 @@
       // Initialize WebGL background immediately and when page loads
       initTicketBackground();
       window.addEventListener("load", initTicketBackground);
+
+      // Dynamic canvas positioning
+      function updateCanvasPosition() {
+        const canvas = document.getElementById("ticketBackground");
+        const ticketSection = canvas.closest("section");
+        const rect = ticketSection.getBoundingClientRect();
+
+        if (rect.top <= 0) {
+          // Ticket section is at or above the top of viewport
+          canvas.style.position = "fixed";
+          canvas.style.top = "0";
+          canvas.style.left = "0";
+          canvas.style.width = "100%";
+          canvas.style.height = "100svh";
+        } else {
+          // Ticket section is below the top of viewport
+          canvas.style.position = "absolute";
+          canvas.style.top = "0";
+          canvas.style.left = "0";
+          canvas.style.width = "100%";
+          canvas.style.height = "100svh";
+        }
+      }
+
+      // Update canvas position on scroll
+      window.addEventListener("scroll", updateCanvasPosition);
+      window.addEventListener("resize", updateCanvasPosition);
+
+      // Initial position update
+      updateCanvasPosition();
+
+      // Venue slideshow with gradient ripple effect
+      function initVenueSlideshow() {
+        const images = [
+          document.getElementById('venue-1'),
+          document.getElementById('venue-2'),
+          document.getElementById('venue-3')
+        ];
+        const ripple = document.getElementById('ripple-overlay');
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+        function showImage(index) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          // Hide all images
+          images.forEach((img, i) => {
+            img.style.opacity = '0';
+          });
+
+          // Show current image
+          images[index].style.opacity = '1';
+
+          // Trigger ripple effect
+          ripple.style.transform = 'translateX(100%)';
+          
+          setTimeout(() => {
+            ripple.style.transform = 'translateX(-100%)';
+          }, 100);
+
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 1000);
+        }
+
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          showImage(currentIndex);
+        }
+
+        // Auto-advance every 4 seconds
+        setInterval(nextImage, 5000);
+
+        // Manual click to advance
+        const venueContainer = document.querySelector('.group');
+        venueContainer.addEventListener('click', nextImage);
+      }
+
+      // Initialize venue slideshow
+      initVenueSlideshow();
     </script>
   </body>
 </html>
