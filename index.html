@@ -303,38 +303,6 @@
           vec3 white = vec3(1.0, 1.0, 1.0);         // Pure white
           vec3 red = vec3(0.765, 0.216, 0.137);     // #c33723 - original red
           
-          // Perlin noise function
-          float hash(vec2 p) {
-            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-          }
-          
-          float noise(vec2 p) {
-            vec2 i = floor(p);
-            vec2 f = fract(p);
-            f = f * f * (3.0 - 2.0 * f);
-            
-            float a = hash(i);
-            float b = hash(i + vec2(1.0, 0.0));
-            float c = hash(i + vec2(0.0, 1.0));
-            float d = hash(i + vec2(1.0, 1.0));
-            
-            return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
-          }
-          
-          float perlinNoise(vec2 p) {
-            float n = 0.0;
-            float amplitude = 1.0;
-            float frequency = 1.0;
-            
-            for(int i = 0; i < 4; i++) {
-              n += amplitude * noise(p * frequency);
-              amplitude *= 0.5;
-              frequency *= 2.0;
-            }
-            
-            return n;
-          }
-          
           float softSpotlight(vec2 uv, vec2 center, float radius, float softness, float rotation) {
             // Rotate UV coordinates around center
             vec2 rotated = center + mat2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation)) * (uv - center);
@@ -352,26 +320,26 @@
             // Start with red background
             vec3 color = red;
             
-            // Base positions with Perlin noise movement (closer to corners)
+            // Base positions with sine wave movement (closer to corners)
             vec2 blueBase = vec2(0.13, 0.87);   // Top left (flipped Y)
             vec2 yellowBase = vec2(0.87, 0.13); // Bottom right (flipped Y)
             vec2 whiteBase = vec2(0.13, 0.13);  // Bottom left (flipped Y)
             
-            // Reduced Perlin noise movement
-            float moveRange = 0.08;
+            // Minimal movement for maximum performance
+            float moveRange = 0.05;
             vec2 bluePos = blueBase + vec2(
-              perlinNoise(vec2(u_time * 0.3, 0.0)) * moveRange,
-              perlinNoise(vec2(0.0, u_time * 0.2)) * moveRange
+              sin(u_time * 0.3) * moveRange,
+              cos(u_time * 0.2) * moveRange
             );
             
             vec2 yellowPos = yellowBase + vec2(
-              perlinNoise(vec2(u_time * 0.4, 100.0)) * moveRange,
-              perlinNoise(vec2(100.0, u_time * 0.3)) * moveRange
+              sin(u_time * 0.4) * moveRange,
+              cos(u_time * 0.3) * moveRange
             );
             
             vec2 whitePos = whiteBase + vec2(
-              perlinNoise(vec2(u_time * 0.5, 200.0)) * moveRange,
-              perlinNoise(vec2(200.0, u_time * 0.4)) * moveRange
+              sin(u_time * 0.5) * moveRange,
+              cos(u_time * 0.4) * moveRange
             );
             
             // Rotating spotlights with specific offsets
@@ -469,11 +437,31 @@
         resize();
         window.addEventListener("resize", resize);
 
-        // Animation loop
+        // Ultra-optimized animation loop
+        let lastTime = 0;
+        const targetFPS = 15; // Reduce to 15fps for much better performance
+        const frameInterval = 1000 / targetFPS;
+        let isVisible = true;
+        let isInViewport = true;
+        
+        // Pause rendering when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+          isVisible = !document.hidden;
+        });
+        
+        // Pause rendering when not in viewport
+        const observer = new IntersectionObserver((entries) => {
+          isInViewport = entries[0].isIntersecting;
+        }, { threshold: 0.1 });
+        observer.observe(canvas);
+        
         function render(time) {
-          gl.clear(gl.COLOR_BUFFER_BIT);
-          gl.uniform1f(timeLocation, time * 0.001);
-          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          if (isVisible && isInViewport && time - lastTime >= frameInterval) {
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.uniform1f(timeLocation, time * 0.001);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            lastTime = time;
+          }
           requestAnimationFrame(render);
         }
 
