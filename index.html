@@ -34,7 +34,7 @@
       </div>
     </nav>
     <div
-      class="absolute top-[-40svh] left-[-50svh] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-a.gif"
@@ -43,7 +43,7 @@
       />
     </div>
     <div
-      class="absolute bottom-[-10svh] right-[-130svh] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute bottom-[-10svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-b.gif"
@@ -51,11 +51,29 @@
         class="h-[130svh] w-auto"
       />
     </div>
+    <div
+      class="absolute top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-c.gif"
+        alt="animation-a"
+        class="h-[100svh] w-auto"
+      />
+    </div>
+    <div
+      class="absolute top-[130svh] right-[-50svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-d.gif"
+        alt="animation-b"
+        class="h-[170svh] w-auto"
+      />
+    </div>
     <section
       class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent"
     >
       <div
-        class="font-anona font-bold uppercase text-[8svw] leading-[13svh] text-center"
+        class="font-anona font-bold uppercase text-[8svw] leading-[7svw] text-center"
       >
         <span class="mr-[26.4svw]">Wander to</span> <br />
         <span class="ml-[38svw]">Flavors</span>
@@ -68,14 +86,50 @@
         X DAYS TO GO
       </div>
     </section>
+    <section
+      class="flex w-full h-[90svh] justify-center items-center px-[8svw] py-[8svh] relative z-[50] mt-[20svh]"
+    >
+      <div
+        class="flex flex-col text-left flex-1 gap-[5svh] border-r-[0.25svh] pr-[10svh] h-full"
+      >
+        <div class="uppercase font-bold text-[4svh] tracking-wider">About</div>
+        <div
+          class="font-roboto-mono font-normal text-[2.7svh] flex flex-col gap-[4svh]"
+        >
+          <p>
+            An experience designed to take the audience on a journey of sensory
+            euphoria through music and breathtaking scenery of flavors.
+          </p>
+          <p>
+            This festival is held in celebration of oxva’s 6th
+            anniversary,marking a milestone in its journey. A music festival was
+            organized to provide fans with an unforgettable experience.
+          </p>
+          <p>
+            Beyond that, this event also serves as a platform for oxva to
+            enhance brand engagement and awareness, while potentially expanding
+            its customer base to include vaping enthusiasts.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col text-left flex-1 pl-[10svh] justify-start h-full">
+        <div class="uppercase font-bold text-[10svh] leading-[11svh]">
+          JKT <br />
+          IDN 2025 <br />
+          COMING SOON
+        </div>
+
+        <div class="w-[51svh] h-[.3svh] bg-white my-[4svh]" />
+      </div>
+    </section>
 
     <script>
       // Initialize Lenis smooth scrolling
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
+        direction: "vertical",
+        gestureDirection: "vertical",
         smooth: true,
         mouseMultiplier: 1,
         smoothTouch: false,
