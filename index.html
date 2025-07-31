@@ -6,10 +6,53 @@
     <title>OXVA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
   </head>
-  <body class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh]">
+  <body
+    class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] position-relative overflow-x-hidden"
+  >
+    <nav
+      class="flex w-full justify-between px-[5svw] py-[3svh] z-[100] fixed top-0 left-0"
+    >
+      <div class="hover:cursor-pointer">
+        <img
+          src="./assets/images/oxperience_logo.svg"
+          alt="oxperience_logo"
+          class="h-[10svh] w-auto"
+        />
+      </div>
+      <div
+        class="flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
+      >
+        <div class="hover:cursor-pointer hover:underline">Countdown</div>
+        <div
+          class="hover:cursor-pointer hover:underline px-[2svh] mx-[2svh] border-x-[.25svh]"
+        >
+          About
+        </div>
+        <div class="hover:cursor-pointer hover:underline">Ticket Info</div>
+      </div>
+    </nav>
+    <div
+      class="absolute top-[-40svh] left-[-50svh] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-a.gif"
+        alt="animation-a"
+        class="h-[150svh] w-auto"
+      />
+    </div>
+    <div
+      class="absolute bottom-[-10svh] right-[-130svh] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-b.gif"
+        alt="animation-b"
+        class="h-[130svh] w-auto"
+      />
+    </div>
     <section
-      class="flex flex-col justify-center items-center h-[100svh] w-full"
+      class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent"
     >
       <div
         class="font-anona font-bold uppercase text-[8svw] leading-[13svh] text-center"
@@ -17,7 +60,116 @@
         <span class="mr-[26.4svw]">Wander to</span> <br />
         <span class="ml-[38svw]">Flavors</span>
       </div>
-      <div class="font-roboto-mono font-light uppercase text-[6svw]">x days to go</div>
+      <div class="w-[80svw] h-[.3svh] bg-white my-[4svh]" />
+      <div
+        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[6svw] leading-[8svw]"
+        id="countdown"
+      >
+        X DAYS TO GO
+      </div>
     </section>
+
+    <script>
+      // Initialize Lenis smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      // Countdown to November 15, 2025, GMT+7
+      let animationInterval;
+      let isAnimating = false;
+      let lastDisplayedValue = null;
+      let lastDisplayedUnit = null;
+
+      function animateNumber(targetNumber, unit) {
+        if (isAnimating) return;
+
+        // Check if the value has actually changed
+        if (lastDisplayedValue === targetNumber && lastDisplayedUnit === unit) {
+          return; // Don't animate if the same value is already displayed
+        }
+
+        isAnimating = true;
+
+        let currentNumber = Math.floor(Math.random() * 999) + 1;
+        const countdownElement = document.getElementById("countdown");
+        let animationCount = 0;
+        const maxAnimations = 20;
+
+        animationInterval = setInterval(() => {
+          if (animationCount < maxAnimations) {
+            currentNumber = Math.floor(Math.random() * 999) + 1;
+            countdownElement.textContent = `${currentNumber} ${unit} to go`;
+            animationCount++;
+          } else {
+            clearInterval(animationInterval);
+            countdownElement.textContent = `${targetNumber} ${unit} to go`;
+            lastDisplayedValue = targetNumber;
+            lastDisplayedUnit = unit;
+            isAnimating = false;
+          }
+        }, 100);
+      }
+
+      function updateCountdown() {
+        // Target date: November 15, 2025, 00:00:00 GMT+7
+        const targetDate = new Date("2025-11-15T00:00:00+07:00");
+        const now = new Date();
+
+        // Calculate the difference
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (difference % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          // Determine which unit to show and animate
+          if (days > 0) {
+            animateNumber(days, "days");
+          } else if (hours > 0) {
+            animateNumber(hours, "hours");
+          } else if (minutes > 0) {
+            animateNumber(minutes, "minutes");
+          } else {
+            animateNumber(seconds, "seconds");
+          }
+        } else {
+          // Event has passed
+          document.getElementById("countdown").textContent =
+            "Event has started!";
+        }
+      }
+
+      // Start with animated placeholder
+      document.getElementById("countdown").textContent = "x days to go";
+
+      // Update countdown every second
+      setInterval(updateCountdown, 1000);
+
+      // Initial update after a short delay
+      setTimeout(updateCountdown, 500);
+    </script>
   </body>
 </html>
