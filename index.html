@@ -116,7 +116,7 @@
     </section>
     <section
       id="about"
-      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] pb-[50svh] lg:pb-0 relative z-[50] mt-[20svh] overflow-x-hidden"
+      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] pb-[50svh] lg:pb-0 relative z-[50] mt-[20svh] overflow-hidden"
     >
       <div
         class="absolute block lg:hidden top-[0svh] right-[-30svw] w-full h-full z-[1] pointer-events-none"
@@ -128,7 +128,7 @@
         />
       </div>
       <div
-        class="absolute block lg:hidden top-[110svh] left-[-20svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+        class="absolute block lg:hidden bottom-[0] left-[-20svw] bg-black-50 z-[1] pointer-events-none"
       >
         <img
           src="./assets/images/animation-c.gif"
@@ -137,7 +137,7 @@
         />
       </div>
       <div
-        class="absolute block lg:hidden top-[110svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+        class="absolute block lg:hidden bottom-[-10svh] right-[-30svw]  bg-black-50 z-[1] pointer-events-none"
       >
         <img
           src="./assets/images/animation-d.gif"
@@ -146,7 +146,7 @@
         />
       </div>
       <div
-        class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh]"
+        class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh] z-[20]"
       >
         <div
           class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider"
@@ -635,14 +635,14 @@
           canvas.style.top = "0";
           canvas.style.left = "0";
           canvas.style.width = "100%";
-          canvas.style.height = "100svh";
+          canvas.style.height = "120svh";
         } else {
           // Ticket section is below the top of viewport
           canvas.style.position = "absolute";
           canvas.style.top = "0";
           canvas.style.left = "0";
           canvas.style.width = "100%";
-          canvas.style.height = "100svh";
+          canvas.style.height = "120svh";
         }
       }
 
