@@ -19,11 +19,11 @@
         <img
           src="./assets/images/oxperience_logo.svg"
           alt="oxperience_logo"
-          class="h-[10svh] w-auto"
+          class="lg:h-[10svh] h-auto w-[25svw] lg:w-auto "
         />
       </div>
       <div
-        class="flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
+        class="hidden lg:flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
       >
         <a
           href="#home"
@@ -50,7 +50,25 @@
       </div>
     </nav>
     <div
-      class="absolute top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute block lg:hidden top-[-15svh] left-[0svw] bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-a.gif"
+        alt="animation-a"
+        class="h-[120svh] w-[120svh] object-cover"
+      />
+    </div>
+    <div
+      class="absolute block lg:hidden top-[95svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-b.gif"
+        alt="animation-b"
+        class="h-[60svh] w-[60svh] object-cover"
+      />
+    </div>
+    <div
+      class="absolute hidden lg:block top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-a.gif"
@@ -59,7 +77,7 @@
       />
     </div>
     <div
-      class="absolute bottom-[-10svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute hidden lg:block bottom-[-10svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-b.gif"
@@ -69,7 +87,7 @@
     </div>
 
     <div
-      class="absolute top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute hidden lg:block top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-c.gif"
@@ -78,7 +96,7 @@
       />
     </div>
     <div
-      class="absolute top-[130svh] right-[-50svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute hidden lg:block top-[130svh] right-[-50svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-d.gif"
@@ -91,14 +109,14 @@
       class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent"
     >
       <div
-        class="font-anona font-bold uppercase text-[8svw] leading-[7svw] text-center"
+        class="font-anona font-bold uppercase text-[14svw] leading-[13svw] lg:text-[8svw] lg:leading-[7svw] text-center"
       >
-        <span class="mr-[26.4svw]">Wander to</span> <br />
-        <span class="ml-[38svw]">Flavors</span>
+        <span class="lg:mr-[26.4svw]">Wander to</span> <br />
+        <span class="lg:ml-[38svw]">Flavors</span>
       </div>
       <div class="w-[80svw] h-[.3svh] bg-white my-[4svh]" />
       <div
-        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[6svw] leading-[8svw]"
+        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[7svw] lg:text-[6svw] mt-[4svh] lg:mt-[0svh] leading-[8svw]"
         id="countdown"
       >
         X DAYS TO GO
@@ -106,14 +124,14 @@
     </section>
     <section
       id="about"
-      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] relative z-[50] mt-[20svh]"
+      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] lg:pt-[20svh] relative z-[50] mt-[20svh]"
     >
       <div
-        class="flex flex-col text-left flex-1 gap-[5svh] h-[80svh] border-r-[0.25svh] pr-[10svh]"
+        class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh]"
       >
-        <div class="uppercase font-bold text-[4svh] tracking-wider">About</div>
+        <div class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider">About</div>
         <div
-          class="font-roboto-mono font-normal text-[2.7svh] flex flex-col gap-[4svh]"
+          class="font-roboto-mono font-normal lg:text-[2.7svh] text-[2.4svh] flex flex-col gap-[4svh]"
         >
           <p>
             An experience designed to take the audience on a journey of sensory
@@ -132,15 +150,15 @@
         </div>
       </div>
       <div
-        class="flex flex-col text-left flex-1 pl-[10svh] justify-start h-[80svh]"
+        class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh]"
       >
-        <div class="uppercase font-bold text-[10svh] leading-[11svh]">
+        <div class="uppercase font-bold lg:text-[10svh] text-[10svw]  lg:leading-[11svh] leading-[10svw]">
           JKT <br />
           IDN 2025 <br />
           COMING SOON
         </div>
 
-        <div class="w-[51svh] h-[.3svh] bg-white my-[4svh]" />
+        <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
       </div>
       <!-- <div
         class="absolute bottom-0 left-0 w-full h-[10svh] bg-gradient-to-b from-transparent to-[#c4341e] z-[0]"
@@ -148,10 +166,30 @@
     </section>
     <section
       id="tickets"
-      class="h-[100svh] w-full relative z-[0] flex flex-col px-[8svw]"
+      class="lg:h-[100svh] w-full relative z-[0] flex flex-col px-[8svw] mt-[20svh] lg:mt-0 items-center lg:items-start"
     >
+    
+    <div
+      class="absolute block lg:hidden top-[-15svh] left-[-20svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-c.gif"
+        alt="animation-a"
+        class="h-[50svh] w-[50svh] object-cover"
+      />
+    </div>
+    <div
+      class="absolute block lg:hidden top-[-30svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-d.gif"
+        alt="animation-b"
+        
+        class="h-[70svh] w-[70svh] object-cover"
+      />
+    </div>
       <div
-        class="absolute top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+        class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
       >
         <img
           src="./assets/images/animation-a.gif"
@@ -169,12 +207,12 @@
         class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[0]"
       ></div>
       <div  
-      id="tickets" class="uppercase font-bold text-[4svh] tracking-wider mt-[20svh] z-[50]">
+      id="tickets" class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]">
         Ticket Information
       </div>
-      <div class="w-full h-full flex justify-center items-center">
+      <div class="w-full lg:h-full mt-[5svh] lg:mt-0 flex justify-center items-center">
         <div
-          class="h-[20svh] w-[68svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center"
+          class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative cursor-pointer group flex justify-center items-center"
         >
           <img
             src="./assets/images/ticket-outline.svg"
@@ -186,17 +224,17 @@
             alt="ticket-button"
             class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
-          <div class="font-bold text-[6svh] tracking-wider uppercase">
+          <div class="font-bold text-[8svw] lg:text-[6svh] tracking-wider uppercase">
             Buy Ticket
           </div>
         </div>
       </div>
     </section>
 
-    <section id="venue" class="flex flex-col pl-[12svw] pt-[10svh] pb-[15svh] relative z-[50] overflow-hidden ">
+    <section id="venue" class="flex flex-col justify-center items-center lg:pl-[12svw] pt-[10svh] pb-[45svh] lg:pb-[15svh] relative z-[50] overflow-hidden ">
         
       <div
-      class="absolute top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
       <img
         src="./assets/images/animation-c.gif"
@@ -204,13 +242,13 @@
         class="h-[100svh] w-auto"
       />
     </div>
-      <div class="uppercase font-bold text-[4svh] tracking-wider mb-[2svh]">
+      <div class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]">
         Venue Information
       </div>
       <div class="flex">
         <div class="relative">
           <div
-            class="h-[60svh] w-[130svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+            class="h-[36svw] lg:w-[80svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
           >
             <img
               src="./assets/images/venue-1.png"
@@ -240,18 +278,18 @@
           
           <!-- Navigation dots -->
           <div
-            class="absolute bottom-[5svh] left-[62svh] transform -translate-x-1/2 flex space-x-[2svh] z-[70]"
+            class="absolute lg:bottom-[5svh] bottom-[5svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
           >
             <div
-              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
               data-index="0"
             ></div>
             <div
-              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
               data-index="1"
             ></div>
             <div
-              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
               data-index="2"
             ></div>
           </div>
