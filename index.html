@@ -15,7 +15,7 @@
     <nav
       class="flex w-full justify-between px-[5svw] py-[3svh] z-[99] fixed top-0 left-0 fixed"
     >
-      <div class="hover:cursor-pointer z-[80]">
+      <div class="hover:cursor-pointer z-[80]" onclick="scrollToHome()">
         <img
           src="./assets/images/oxperience_logo.svg"
           alt="oxperience_logo"
@@ -841,6 +841,13 @@
       document.getElementById('mobile-menu-btn').addEventListener('click', openMobileMenu);
       document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
       document.getElementById('mobile-overlay').addEventListener('click', closeMobileMenu);
+
+      // Scroll to home function
+      function scrollToHome() {
+        document.getElementById('home').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }
     </script>
   </body>
 </html>
