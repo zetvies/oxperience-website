@@ -13,9 +13,9 @@
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
     <nav
-      class="flex w-full justify-between px-[5svw] py-[3svh] z-[100] fixed top-0 left-0"
+      class="flex w-full justify-between px-[5svw] py-[3svh] z-[99] fixed top-0 left-0 fixed"
     >
-      <div class="hover:cursor-pointer">
+      <div class="hover:cursor-pointer z-[80]">
         <img
           src="./assets/images/oxperience_logo.svg"
           alt="oxperience_logo"
@@ -48,7 +48,76 @@
           Venue
         </a>
       </div>
+      
+      <!-- Mobile Hamburger Menu -->
+      <div class="lg:hidden flex items-center z-[100]">
+        <button
+          id="mobile-menu-btn"
+          class="flex flex-col justify-center items-center w-[8svw] h-[8svw] space-y-[0.5svw] transition-all duration-300"
+        >
+          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
+          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
+          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div
+      id="mobile-overlay"
+      class="fixed inset-0 bg-black/50 z-[100] hidden lg:hidden transition-opacity duration-300"
+    ></div>
+
+    <!-- Mobile Sidebar -->
+    <div
+      id="mobile-sidebar"
+      class="fixed top-0 right-0 h-full w-[80svw] bg-[#c4341e] z-[110] transform translate-x-full transition-transform duration-300 lg:hidden"
+    >
+      <div class="flex flex-col h-full p-[5svw]">
+        <!-- Close button -->
+        <div class="flex justify-end mb-[10svh]">
+          <button
+            id="mobile-close-btn"
+            class="relative w-[8svw] h-[8svw] transition-all duration-300"
+          >
+            <span class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 rotate-45 transition-all duration-300"></span>
+            <span class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 -rotate-45 transition-all duration-300"></span>
+          </button>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="flex flex-col space-y-[6svh] font-roboto-mono font-normal uppercase text-[3svh]">
+          <a
+            href="#home"
+            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+            onclick="closeMobileMenu()"
+          >
+            Countdown
+          </a>
+          <a
+            href="#about"
+            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+            onclick="closeMobileMenu()"
+          >
+            About
+          </a>
+          <a
+            href="#tickets"
+            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+            onclick="closeMobileMenu()"
+          >
+            Ticket
+          </a>
+          <a
+            href="#venue"
+            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+            onclick="closeMobileMenu()"
+          >
+            Venue
+          </a>
+        </div>
+      </div>
+    </div>
     <div
       class="absolute hidden lg:block top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
@@ -734,6 +803,38 @@
 
       // Initialize venue slideshow
       initVenueSlideshow();
+
+      // Mobile Navigation Functions
+      function openMobileMenu() {
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+        const hamburger = document.getElementById('mobile-menu-btn');
+        
+        sidebar.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+        hamburger.classList.add('hidden');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+        const hamburger = document.getElementById('mobile-menu-btn');
+        
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+        hamburger.classList.remove('hidden');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+      }
+
+      // Event Listeners for Mobile Menu
+      document.getElementById('mobile-menu-btn').addEventListener('click', openMobileMenu);
+      document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
+      document.getElementById('mobile-overlay').addEventListener('click', closeMobileMenu);
     </script>
   </body>
 </html>
