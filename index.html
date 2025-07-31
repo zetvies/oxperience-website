@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
   </head>
   <body
-    class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] position-relative overflow-x-hidden"
+    class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
     <nav
       class="flex w-full justify-between px-[5svw] py-[3svh] z-[100] fixed top-0 left-0"
@@ -19,7 +19,7 @@
         <img
           src="./assets/images/oxperience_logo.svg"
           alt="oxperience_logo"
-          class="lg:h-[10svh] h-auto w-[25svw] lg:w-auto "
+          class="lg:h-[10svh] h-auto w-[25svw] lg:w-auto"
         />
       </div>
       <div
@@ -49,24 +49,6 @@
         </a>
       </div>
     </nav>
-    <div
-      class="absolute block lg:hidden top-[-15svh] left-[0svw] bg-black-50 z-[1] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-a.gif"
-        alt="animation-a"
-        class="h-[120svh] w-[120svh] object-cover"
-      />
-    </div>
-    <div
-      class="absolute block lg:hidden top-[95svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-b.gif"
-        alt="animation-b"
-        class="h-[60svh] w-[60svh] object-cover"
-      />
-    </div>
     <div
       class="absolute hidden lg:block top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
@@ -106,17 +88,27 @@
     </div>
     <section
       id="home"
-      class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent"
+      class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent overflow-x-hidden"
     >
       <div
-        class="font-anona font-bold uppercase text-[14svw] leading-[13svw] lg:text-[8svw] lg:leading-[7svw] text-center"
+        class="absolute block lg:hidden top-[-15svh] left-[0svw] bg-black-50 z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-a.gif"
+          alt="animation-a"
+          class="h-[120svh] w-[120svh] object-cover"
+        />
+      </div>
+
+      <div
+        class="font-anona font-bold uppercase text-[14svw] leading-[13svw] lg:text-[8svw] lg:leading-[7svw] text-center z-[20]"
       >
         <span class="lg:mr-[26.4svw]">Wander to</span> <br />
         <span class="lg:ml-[38svw]">Flavors</span>
       </div>
-      <div class="w-[80svw] h-[.3svh] bg-white my-[4svh]" />
+      <div class="w-[80svw] h-[.3svh] bg-white my-[4svh] z-[20]" />
       <div
-        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[7svw] lg:text-[6svw] mt-[4svh] lg:mt-[0svh] leading-[8svw]"
+        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[7svw] lg:text-[6svw] mt-[4svh] lg:mt-[0svh] leading-[8svw] z-[20]"
         id="countdown"
       >
         X DAYS TO GO
@@ -124,12 +116,43 @@
     </section>
     <section
       id="about"
-      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] lg:pt-[20svh] relative z-[50] mt-[20svh]"
+      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] pb-[50svh] lg:pb-0 relative z-[50] mt-[20svh] overflow-x-hidden"
     >
+      <div
+        class="absolute block lg:hidden top-[0svh] right-[-30svw] w-full h-full z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-b.gif"
+          alt="animation-b"
+          class="h-[60svh] w-[60svh] object-cover"
+        />
+      </div>
+      <div
+        class="absolute block lg:hidden top-[110svh] left-[-20svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-c.gif"
+          alt="animation-c"
+          class="h-[50svh] w-[50svh] object-cover"
+        />
+      </div>
+      <div
+        class="absolute block lg:hidden top-[110svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-d.gif"
+          alt="animation-d"
+          class="h-[70svh] w-[70svh] object-cover"
+        />
+      </div>
       <div
         class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh]"
       >
-        <div class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider">About</div>
+        <div
+          class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider"
+        >
+          About
+        </div>
         <div
           class="font-roboto-mono font-normal lg:text-[2.7svh] text-[2.4svh] flex flex-col gap-[4svh]"
         >
@@ -150,9 +173,11 @@
         </div>
       </div>
       <div
-        class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh]"
+        class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh] z-[20]"
       >
-        <div class="uppercase font-bold lg:text-[10svh] text-[10svw]  lg:leading-[11svh] leading-[10svw]">
+        <div
+          class="uppercase font-bold lg:text-[10svh] text-[10svw] lg:leading-[11svh] leading-[10svw]"
+        >
           JKT <br />
           IDN 2025 <br />
           COMING SOON
@@ -160,34 +185,13 @@
 
         <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
       </div>
-      <!-- <div
-        class="absolute bottom-0 left-0 w-full h-[10svh] bg-gradient-to-b from-transparent to-[#c4341e] z-[0]"
-      ></div> -->
+      
     </section>
     <section
       id="tickets"
-      class="lg:h-[100svh] w-full relative z-[0] flex flex-col px-[8svw] mt-[20svh] lg:mt-0 items-center lg:items-start"
+      class="lg:h-[100svh] w-full relative z-[0] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start "
     >
-    
-    <div
-      class="absolute block lg:hidden top-[-15svh] left-[-20svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-c.gif"
-        alt="animation-a"
-        class="h-[50svh] w-[50svh] object-cover"
-      />
-    </div>
-    <div
-      class="absolute block lg:hidden top-[-30svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-d.gif"
-        alt="animation-b"
-        
-        class="h-[70svh] w-[70svh] object-cover"
-      />
-    </div>
+      
       <div
         class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
       >
@@ -206,11 +210,15 @@
       <div
         class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[0]"
       ></div>
-      <div  
-      id="tickets" class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]">
+      <div
+        id="tickets"
+        class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
+      >
         Ticket Information
       </div>
-      <div class="w-full lg:h-full mt-[5svh] lg:mt-0 flex justify-center items-center">
+      <div
+        class="w-full lg:h-full mt-[5svh] lg:mt-0 flex justify-center items-center"
+      >
         <div
           class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative cursor-pointer group flex justify-center items-center"
         >
@@ -224,31 +232,37 @@
             alt="ticket-button"
             class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
-          <div class="font-bold text-[8svw] lg:text-[6svh] tracking-wider uppercase">
+          <div
+            class="font-bold text-[8svw] lg:text-[6svh] tracking-wider uppercase"
+          >
             Buy Ticket
           </div>
         </div>
       </div>
     </section>
 
-    <section id="venue" class="flex flex-col justify-center items-center lg:pl-[12svw] pt-[10svh] pb-[45svh] lg:pb-[15svh] relative z-[50] overflow-hidden ">
-        
-      <div
-      class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    <section
+      id="venue"
+      class="flex flex-col justify-center items-center lg:items-start lg:pl-[12svw] pt-[10svh] pb-[45svh] lg:pb-[15svh] relative z-[50] overflow-x-hidden"
     >
-      <img
-        src="./assets/images/animation-c.gif"
-        alt="animation-c"
-        class="h-[100svh] w-auto"
-      />
-    </div>
-      <div class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]">
+      <div
+        class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-c.gif"
+          alt="animation-c"
+          class="h-[100svh] w-auto"
+        />
+      </div>
+      <div
+        class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]"
+      >
         Venue Information
       </div>
       <div class="flex">
         <div class="relative">
           <div
-            class="h-[36svw] lg:w-[80svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+            class="h-[36svw] lg:h-[31.5svw]  lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
           >
             <img
               src="./assets/images/venue-1.png"
@@ -275,7 +289,7 @@
               id="ripple-overlay"
             ></div>
           </div>
-          
+
           <!-- Navigation dots -->
           <div
             class="absolute lg:bottom-[5svh] bottom-[5svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
