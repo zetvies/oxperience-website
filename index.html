@@ -25,13 +25,28 @@
       <div
         class="flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
       >
-        <div class="hover:cursor-pointer hover:underline">Countdown</div>
-        <div
-          class="hover:cursor-pointer hover:underline px-[2svh] mx-[2svh] border-x-[.25svh]"
+        <a
+          href="#home"
+          class="hover:cursor-pointer hover:underline transition-colors"
+          >Countdown</a
+        >
+        <a
+          href="#about"
+          class="hover:cursor-pointer hover:underline px-[2svh] mx-[2svh] border-x-[.25svh] transition-colors"
         >
           About
-        </div>
-        <div class="hover:cursor-pointer hover:underline">Ticket Info</div>
+        </a>
+        <a
+          href="#tickets"
+          class="hover:cursor-pointer hover:underline transition-colors"
+          >Ticket</a
+        >
+        <a
+          href="#venue"
+          class="hover:cursor-pointer hover:underline pl-[2svh] ml-[2svh] border-l-[.25svh] transition-colors"
+        >
+          Venue
+        </a>
       </div>
     </nav>
     <div
@@ -52,7 +67,7 @@
         class="h-[130svh] w-auto"
       />
     </div>
-    
+
     <div
       class="absolute top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
     >
@@ -72,6 +87,7 @@
       />
     </div>
     <section
+      id="home"
       class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent"
     >
       <div
@@ -89,7 +105,8 @@
       </div>
     </section>
     <section
-      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[8svh] relative z-[50] mt-[20svh]"
+      id="about"
+      class="flex w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] relative z-[50] mt-[20svh]"
     >
       <div
         class="flex flex-col text-left flex-1 gap-[5svh] h-[80svh] border-r-[0.25svh] pr-[10svh]"
@@ -130,26 +147,18 @@
       ></div> -->
     </section>
     <section
-      class="h-[200svh] w-full relative z-[0] flex flex-col px-[8svw] overflow-hidden"
+      id="tickets"
+      class="h-[100svh] w-full relative z-[0] flex flex-col px-[8svw]"
     >
-    <div
-      class="absolute top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-a.gif"
-        alt="animation-b"
-        class="h-[160svh] w-auto"
-      />
-    </div>
-    <div
-    class="absolute top-[130svh] right-[-70svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
-  >
-    <img
-      src="./assets/images/animation-c.gif"
-      alt="animation-a"
-      class="h-[100svh] w-auto"
-    />
-  </div>
+      <div
+        class="absolute top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+      >
+        <img
+          src="./assets/images/animation-a.gif"
+          alt="animation-b"
+          class="h-[160svh] w-auto"
+        />
+      </div>
       <canvas
         id="ticketBackground"
         class="absolute inset-0 w-full h-[100svh] z-[-1]"
@@ -159,7 +168,8 @@
       <div
         class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[0]"
       ></div>
-      <div class="uppercase font-bold text-[4svh] tracking-wider mt-[30svh]">
+      <div  
+      id="tickets" class="uppercase font-bold text-[4svh] tracking-wider mt-[20svh] z-[50]">
         Ticket Information
       </div>
       <div class="w-full h-full flex justify-center items-center">
@@ -181,20 +191,26 @@
           </div>
         </div>
       </div>
-      `
-      <div class="flex flex-col mb-[5svh] ml-[5svw] z-[50] relative">
-        <div class="uppercase font-bold text-[4svh] tracking-wider mt-[10svh]">
-          Venue Information
-        </div>
-        <!-- Navigation dots -->
-        <div class="absolute bottom-[15svh] left-[62svh] transform -translate-x-1/2 flex space-x-[2svh] z-[70]">
-            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="0"></div>
-            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="1"></div>
-            <div class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg" data-index="2"></div>
-          </div>
-        <div class="w-full h-full flex items-center relat">
+    </section>
+
+    <section id="venue" class="flex flex-col pl-[12svw] pt-[10svh] pb-[15svh] relative z-[50] overflow-hidden ">
+        
+      <div
+      class="absolute top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
+    >
+      <img
+        src="./assets/images/animation-c.gif"
+        alt="animation-c"
+        class="h-[100svh] w-auto"
+      />
+    </div>
+      <div class="uppercase font-bold text-[4svh] tracking-wider mb-[2svh]">
+        Venue Information
+      </div>
+      <div class="flex">
+        <div class="relative">
           <div
-            class="h-[60svh] w-[130svh] mb-[10svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+            class="h-[60svh] w-[130svh] relative cursor-pointer group flex justify-center items-center overflow-hidden"
           >
             <img
               src="./assets/images/venue-1.png"
@@ -215,14 +231,30 @@
               id="venue-3"
             />
 
-                         <!-- Gradient ripple overlay -->
-             <div
-               class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
-               id="ripple-overlay"
-             ></div>
-             
-             
-           </div>
+            <!-- Gradient ripple overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
+              id="ripple-overlay"
+            ></div>
+          </div>
+          
+          <!-- Navigation dots -->
+          <div
+            class="absolute bottom-[5svh] left-[62svh] transform -translate-x-1/2 flex space-x-[2svh] z-[70]"
+          >
+            <div
+              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              data-index="0"
+            ></div>
+            <div
+              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              data-index="1"
+            ></div>
+            <div
+              class="w-[2svh] h-[2svh] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+              data-index="2"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
@@ -577,7 +609,7 @@
           document.getElementById("venue-3"),
         ];
         const ripple = document.getElementById("ripple-overlay");
-        const dots = document.querySelectorAll('[data-index]');
+        const dots = document.querySelectorAll("[data-index]");
         let currentIndex = 0;
         let isTransitioning = false;
 
@@ -585,12 +617,12 @@
           dots.forEach((dot, i) => {
             if (i === index) {
               // Active dot
-              dot.style.backgroundColor = '#e3fd55';
-              dot.style.transform = 'scale(1.2)';
+              dot.style.backgroundColor = "#e3fd55";
+              dot.style.transform = "scale(1.2)";
             } else {
               // Inactive dot
-              dot.style.backgroundColor = 'white';
-              dot.style.transform = 'scale(1)';
+              dot.style.backgroundColor = "white";
+              dot.style.transform = "scale(1)";
             }
           });
         }
@@ -627,16 +659,17 @@
           showImage(currentIndex);
         }
 
-                // Auto-advance every 4 seconds
+        // Auto-advance every 4 seconds
         setInterval(nextImage, 5000);
 
         // Manual click to advance
-        const venueContainer = document.querySelector('[id^="venue-"]').parentElement;
+        const venueContainer =
+          document.querySelector('[id^="venue-"]').parentElement;
         venueContainer.addEventListener("click", nextImage);
 
         // Dot click handlers
         dots.forEach((dot, index) => {
-          dot.addEventListener('click', (e) => {
+          dot.addEventListener("click", (e) => {
             e.stopPropagation(); // Prevent triggering venue container click
             currentIndex = index;
             showImage(currentIndex);
