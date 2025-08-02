@@ -48,16 +48,22 @@
           Venue
         </a>
       </div>
-      
+
       <!-- Mobile Hamburger Menu -->
       <div class="lg:hidden flex items-center z-[100]">
         <button
           id="mobile-menu-btn"
           class="flex flex-col justify-center items-center w-[8svw] h-[8svw] space-y-[0.5svw] transition-all duration-300"
         >
-          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
-          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
-          <span class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"></span>
+          <span
+            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+          ></span>
+          <span
+            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+          ></span>
+          <span
+            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+          ></span>
         </button>
       </div>
     </nav>
@@ -80,13 +86,19 @@
             id="mobile-close-btn"
             class="relative w-[8svw] h-[8svw] transition-all duration-300"
           >
-            <span class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 rotate-45 transition-all duration-300"></span>
-            <span class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 -rotate-45 transition-all duration-300"></span>
+            <span
+              class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 rotate-45 transition-all duration-300"
+            ></span>
+            <span
+              class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 -rotate-45 transition-all duration-300"
+            ></span>
           </button>
         </div>
-        
+
         <!-- Navigation Links -->
-        <div class="flex flex-col space-y-[6svh] font-roboto-mono font-normal uppercase text-[3svh]">
+        <div
+          class="flex flex-col space-y-[6svh] font-roboto-mono font-normal uppercase text-[3svh]"
+        >
           <a
             href="#home"
             class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
@@ -206,7 +218,7 @@
         />
       </div>
       <div
-        class="absolute block lg:hidden bottom-[-10svh] right-[-30svw]  bg-black-50 z-[1] pointer-events-none"
+        class="absolute block lg:hidden bottom-[-10svh] right-[-30svw] bg-black-50 z-[1] pointer-events-none"
       >
         <img
           src="./assets/images/animation-d.gif"
@@ -247,20 +259,18 @@
         <div
           class="uppercase font-bold lg:text-[10svh] text-[10svw] lg:leading-[11svh] leading-[10svw]"
         >
-          JKT <br />
-          IDN 2025 <br />
+          OXPERIENCE 2025 <br />
+          MUSIC FESTIVAL <br />
           COMING SOON
         </div>
 
         <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
       </div>
-      
     </section>
     <section
       id="tickets"
-      class="lg:h-[100svh] w-full relative z-[0] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start "
+      class="lg:h-[100svh] w-full relative z-[0] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
     >
-      
       <div
         class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[1] pointer-events-none"
       >
@@ -289,22 +299,22 @@
         class="w-full lg:h-full mt-[5svh] lg:mt-0 flex justify-center items-center"
       >
         <div
-          class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative cursor-pointer group flex justify-center items-center"
+          class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex justify-center items-center"
         >
           <img
             src="./assets/images/ticket-outline.svg"
             alt="ticket-button"
-            class="absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300 group-hover:opacity-0"
+            class="absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300"
           />
-          <img
+          <!-- <img
             src="./assets/images/ticket-fill.svg"
             alt="ticket-button"
             class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          />
+          /> -->
           <div
             class="font-bold text-[8svw] lg:text-[6svh] tracking-wider uppercase"
           >
-            Buy Ticket
+            Coming Soon
           </div>
         </div>
       </div>
@@ -331,7 +341,7 @@
       <div class="flex">
         <div class="relative">
           <div
-            class="h-[36svw] lg:h-[31.5svw]  lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+            class="h-[36svw] lg:h-[31.5svw] lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
           >
             <img
               src="./assets/images/venue-1.png"
@@ -358,10 +368,11 @@
               id="ripple-overlay"
             ></div>
           </div>
+     
 
           <!-- Navigation dots -->
           <div
-            class="absolute lg:bottom-[5svh] bottom-[5svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
+            class="absolute lg:bottom-[5svh] bottom-[5svw] lg:left-[35svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
           >
             <div
               class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
@@ -376,8 +387,14 @@
               data-index="2"
             ></div>
           </div>
+         
         </div>
       </div>
+      <div
+      class="mt-[1svh] font-roboto-mono lg:text-[3svh] text-[5svw] tracking-wider mb-[2svh] "
+    >
+      Plaza Barat, GBK
+    </div>
     </section>
 
     <script>
@@ -812,40 +829,46 @@
 
       // Mobile Navigation Functions
       function openMobileMenu() {
-        const sidebar = document.getElementById('mobile-sidebar');
-        const overlay = document.getElementById('mobile-overlay');
-        const hamburger = document.getElementById('mobile-menu-btn');
-        
-        sidebar.classList.remove('translate-x-full');
-        overlay.classList.remove('hidden');
-        hamburger.classList.add('hidden');
-        
+        const sidebar = document.getElementById("mobile-sidebar");
+        const overlay = document.getElementById("mobile-overlay");
+        const hamburger = document.getElementById("mobile-menu-btn");
+
+        sidebar.classList.remove("translate-x-full");
+        overlay.classList.remove("hidden");
+        hamburger.classList.add("hidden");
+
         // Prevent body scroll
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
       }
 
       function closeMobileMenu() {
-        const sidebar = document.getElementById('mobile-sidebar');
-        const overlay = document.getElementById('mobile-overlay');
-        const hamburger = document.getElementById('mobile-menu-btn');
-        
-        sidebar.classList.add('translate-x-full');
-        overlay.classList.add('hidden');
-        hamburger.classList.remove('hidden');
-        
+        const sidebar = document.getElementById("mobile-sidebar");
+        const overlay = document.getElementById("mobile-overlay");
+        const hamburger = document.getElementById("mobile-menu-btn");
+
+        sidebar.classList.add("translate-x-full");
+        overlay.classList.add("hidden");
+        hamburger.classList.remove("hidden");
+
         // Restore body scroll
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
 
       // Event Listeners for Mobile Menu
-      document.getElementById('mobile-menu-btn').addEventListener('click', openMobileMenu);
-      document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
-      document.getElementById('mobile-overlay').addEventListener('click', closeMobileMenu);
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", openMobileMenu);
+      document
+        .getElementById("mobile-close-btn")
+        .addEventListener("click", closeMobileMenu);
+      document
+        .getElementById("mobile-overlay")
+        .addEventListener("click", closeMobileMenu);
 
       // Scroll to home function
       function scrollToHome() {
-        document.getElementById('home').scrollIntoView({ 
-          behavior: 'smooth' 
+        document.getElementById("home").scrollIntoView({
+          behavior: "smooth",
         });
       }
     </script>
