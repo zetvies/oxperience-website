@@ -12,14 +12,62 @@
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
+    <!-- Age Verification Modal -->
+    <div id="ageVerificationModal" class="fixed inset-0 bg-[#c4341e] z-[200] flex items-center justify-center opacity-100 hidden">
+      <div class="text-center px-[8svw] ">
+        <!-- OXPERIENCE Logo -->
+        <div class="mb-[8svh]">
+          <img
+            src="./assets/images/oxperience_logo.svg"
+            alt="oxperience_logo"
+            class="h-[15svh] w-auto mx-auto"
+          />
+        </div>
+        
+        <!-- Title -->
+        <h1 class="text-white font-bold text-[6svw] lg:text-[4svh] mb-[4svh]">
+          Age Verification
+        </h1>
+        
+        <!-- Instructional Text -->
+        <p class="text-white font-bold text-[4svw] lg:text-[2.5svh] mb-[6svh] leading-tight">
+          You must be 21 years old to visit our website.
+        </p>
+        
+        <!-- Checkbox and Confirmation Text -->
+        <div class="flex items-start justify-center mb-[6svh]">
+          <input
+            type="checkbox"
+            id="ageConfirm"
+            class="w-[4svw] h-[4svw] lg:w-[2svh] lg:h-[2svh] mr-[2svw] lg:mr-[1svh] mt-[0.5svw] lg:mt-[0.25svh]"
+          />
+          <label for="ageConfirm" class="text-white text-[3.5svw] lg:text-[2svh] text-left leading-tight">
+            I confirm that I am 21 years old or over
+          </label>
+        </div>
+        
+        <!-- Enter Button -->
+        <button
+          id="enterButton"
+          class="bg-black text-white font-bold py-[2svh] px-[6svw] lg:px-[4svh] rounded-lg text-[4svw] lg:text-[2.5svh] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+          disabled
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+
     <!-- Chessboard texture overlay -->
     <div 
-      class="fixed inset-0 pointer-events-none z-[5]"
+      id="globalHalftone"
+      class="fixed inset-0 pointer-events-none z-[5] opacity-0 transition-opacity duration-1000 ease-in-out"
       style="background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.1) 75%); background-size: 8px 8px; background-position: 0 0, 0 4px, 4px -4px, -4px 0px;"
     ></div>
-    <nav
-      class="flex w-full justify-between px-[5svw] py-[3svh] z-[99] fixed top-0 left-0 fixed"
-    >
+    <!-- Main Content Wrapper -->
+    <div id="mainContent" class="opacity-0 transition-opacity duration-1000 ease-in-out">
+      <nav
+        class="flex w-full justify-between px-[5svw] py-[3svh] z-[99] fixed top-0 left-0 fixed"
+      >
       <div class="hover:cursor-pointer z-[80] flex items-center" onclick="scrollToHome()">
         <img
           src="./assets/images/oxperience_logo.svg"
@@ -419,6 +467,7 @@
       Plaza Barat, GBK
     </div>
     </section>
+    </div>
 
     <script>
       // Initialize Lenis smooth scrolling
@@ -907,6 +956,60 @@
           behavior: "smooth",
         });
       }
+
+      // Age Verification Modal
+      function initAgeVerification() {
+        const modal = document.getElementById("ageVerificationModal");
+        const checkbox = document.getElementById("ageConfirm");
+        const enterButton = document.getElementById("enterButton");
+
+        // Check if user has already verified age
+        if (localStorage.getItem("ageVerified") === "true") {
+          // Show content immediately if already verified
+          const halftone = document.getElementById("globalHalftone");
+          const mainContent = document.getElementById("mainContent");
+          
+          halftone.style.opacity = "1";
+          mainContent.style.opacity = "1";
+          return; // Modal stays hidden
+        }
+
+        // Show modal if user hasn't verified age
+        modal.classList.remove("hidden");
+        
+        // Disable scrolling when modal is shown
+        document.body.style.overflow = "hidden";
+
+        // Handle checkbox change
+        checkbox.addEventListener("change", function() {
+          enterButton.disabled = !this.checked;
+        });
+
+        // Handle enter button click
+        enterButton.addEventListener("click", function() {
+          if (checkbox.checked) {
+            localStorage.setItem("ageVerified", "true");
+            // Fade out animation
+            modal.style.transition = "opacity 0.5s ease-out";
+            modal.style.opacity = "0";
+            setTimeout(() => {
+              modal.style.display = "none";
+              // Enable scrolling on body
+              document.body.style.overflow = "";
+              
+              // Fade in halftone and content
+              const halftone = document.getElementById("globalHalftone");
+              const mainContent = document.getElementById("mainContent");
+              
+              halftone.style.opacity = "1";
+              mainContent.style.opacity = "1";
+            }, 500);
+          }
+        });
+      }
+
+      // Initialize age verification on page load
+      document.addEventListener("DOMContentLoaded", initAgeVerification);
     </script>
   </body>
 </html>
