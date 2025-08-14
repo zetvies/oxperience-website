@@ -528,11 +528,12 @@
 
       function updateCountdown() {
         // Target date: November 15, 2025, 00:00:00 GMT+7
-        const targetDate = new Date("2025-11-15T00:00:00+07:00");
+        // Create date in local timezone to avoid timezone conversion issues
+        const targetDate = new Date(2025, 10, 15); // Month is 0-indexed, so 10 = November
         const now = new Date();
 
-        // Calculate the difference
-        const difference = targetDate - now;
+        // Calculate the difference in milliseconds
+        const difference = targetDate.getTime() - now.getTime();
 
         if (difference > 0) {
           // Calculate days, hours, minutes, seconds
@@ -547,7 +548,7 @@
 
           // Determine which unit to show and animate
           if (days > 0) {
-            animateNumber(days, "days");
+            animateNumber(days + 1, "days");
           } else if (hours > 0) {
             animateNumber(hours, "hours");
           } else if (minutes > 0) {
