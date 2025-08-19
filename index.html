@@ -1133,8 +1133,8 @@
         const progressBar = document.getElementById("progressBar");
         const progressText = document.getElementById("progressText");
         
-        // List of all assets to preload
-        const assets = [
+        // List of local assets to preload (only count these for percentage)
+        const localAssets = [
           // Fonts
           './assets/fonts/Anona_Extrabold_Italic.otf',
           './assets/fonts/Anona_Extrabold.otf',
@@ -1157,18 +1157,14 @@
           './assets/images/venue-3.png',
           './assets/images/early-bird-available.svg',
           './assets/images/early-bird.svg',
-          './assets/images/available.svg',
-          
-          // External resources
-          'https://cdn.tailwindcss.com',
-          'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js'
+          './assets/images/available.svg'
         ];
         
         let loadedCount = 0;
-        const totalAssets = assets.length;
+        const totalAssets = localAssets.length;
         
         function updateProgress() {
-          const percentage = Math.round((loadedCount / totalAssets) * 100);
+          const percentage = Math.min(Math.round((loadedCount / totalAssets) * 100), 100);
           progressBar.style.width = `${percentage}%`;
           progressText.textContent = `${percentage}%`;
         }
@@ -1178,7 +1174,7 @@
           updateProgress();
           
           if (loadedCount >= totalAssets) {
-            // All assets loaded, hide preloader and show age verification
+            // All local assets loaded, hide preloader and show age verification
             setTimeout(() => {
               preloader.style.transition = "opacity 0.5s ease-out";
               preloader.style.opacity = "0";
@@ -1199,16 +1195,13 @@
           assetLoaded(); // Continue even if font fails
         });
         
-        // Preload images
-        assets.forEach(asset => {
+        // Preload local images and fonts
+        localAssets.forEach(asset => {
           if (asset.startsWith('./assets/images/') || asset.startsWith('./assets/fonts/')) {
             const img = new Image();
             img.onload = assetLoaded;
             img.onerror = assetLoaded; // Continue even if image fails
             img.src = asset;
-          } else {
-            // For external resources, just count them as loaded
-            assetLoaded();
           }
         });
       }
