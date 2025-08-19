@@ -8,10 +8,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js"></script>
   </head>
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-[#c4341e] z-[300] flex items-center justify-center">
+      <div class="text-center">
+        <!-- OXPERIENCE Logo -->
+        <div class="mb-[8svh]">
+          <img
+            src="./assets/images/oxperience_logo.svg"
+            alt="oxperience_logo"
+            class="h-[15svh] w-auto mx-auto"
+          />
+        </div>
+        
+        <!-- Loading Text -->
+        <div class="text-white font-bold text-[4svw] lg:text-[2.5svh] mb-[4svh]">
+          Loading...
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="w-[60svw] lg:w-[40svh] bg-white/20 rounded-full h-[1svh] overflow-hidden">
+          <div id="progressBar" class="bg-white h-full rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+        </div>
+        
+        <!-- Progress Text -->
+        <div id="progressText" class="text-white text-[3svw] lg:text-[1.8svh] mt-[2svh]">
+          0%
+        </div>
+      </div>
+    </div>
+
     <!-- Age Verification Modal -->
     <div
       id="ageVerificationModal"
@@ -466,14 +496,16 @@
           </div>
         </div>
         <div class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full">
-          <div>* Harga tiket tidak termasuk pajak</div>
+          <div>* Harga tiket belum termasuk pajak dan service.
+          </div>
           <div>
             <span
-              >* Tiket termasuk pembelian merchandise yang bisa ditukar
+              >* 
+              Pembelian tiket sudah termasuk mendapatkan merchandise eksklusif
               </span>
               <br class="hidden lg:block" />
               <span class="lg:ml-[1.7svh]">
-              di dalam acara dengan persetujuan pengunjung.</span
+                gratis yang dapat ditukarkan di dalam venue.</span
             >
           </div>
         </div>
@@ -1095,8 +1127,94 @@
         });
       }
 
-      // Initialize age verification on page load
-      document.addEventListener("DOMContentLoaded", initAgeVerification);
+      // Asset Preloader
+      function initPreloader() {
+        const preloader = document.getElementById("preloader");
+        const progressBar = document.getElementById("progressBar");
+        const progressText = document.getElementById("progressText");
+        
+        // List of all assets to preload
+        const assets = [
+          // Fonts
+          './assets/fonts/Anona_Extrabold_Italic.otf',
+          './assets/fonts/Anona_Extrabold.otf',
+          './assets/fonts/Anona_Semibold_Italic.otf',
+          './assets/fonts/Anona_Semibold.otf',
+          './assets/fonts/RobotoMono-VariableFont_wght.ttf',
+          
+          // Images
+          './assets/images/animation-a.gif',
+          './assets/images/animation-b.gif',
+          './assets/images/animation-c.gif',
+          './assets/images/animation-d.gif',
+          './assets/images/line.svg',
+          './assets/images/oxperience_logo.svg',
+          './assets/images/powered-by.png',
+          './assets/images/ticket-fill.svg',
+          './assets/images/ticket-outline.svg',
+          './assets/images/venue-1.png',
+          './assets/images/venue-2.png',
+          './assets/images/venue-3.png',
+          './assets/images/early-bird-available.svg',
+          './assets/images/early-bird.svg',
+          './assets/images/available.svg',
+          
+          // External resources
+          'https://cdn.tailwindcss.com',
+          'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js'
+        ];
+        
+        let loadedCount = 0;
+        const totalAssets = assets.length;
+        
+        function updateProgress() {
+          const percentage = Math.round((loadedCount / totalAssets) * 100);
+          progressBar.style.width = `${percentage}%`;
+          progressText.textContent = `${percentage}%`;
+        }
+        
+        function assetLoaded() {
+          loadedCount++;
+          updateProgress();
+          
+          if (loadedCount >= totalAssets) {
+            // All assets loaded, hide preloader and show age verification
+            setTimeout(() => {
+              preloader.style.transition = "opacity 0.5s ease-out";
+              preloader.style.opacity = "0";
+              setTimeout(() => {
+                preloader.style.display = "none";
+                // Initialize age verification after preloader is hidden
+                initAgeVerification();
+              }, 500);
+            }, 500); // Small delay for smooth transition
+          }
+        }
+        
+        // Preload fonts
+        const fontFaceObserver = new FontFaceObserver('Anona', { weight: 800, style: 'normal' });
+        fontFaceObserver.load().then(() => {
+          assetLoaded();
+        }).catch(() => {
+          assetLoaded(); // Continue even if font fails
+        });
+        
+        // Preload images
+        assets.forEach(asset => {
+          if (asset.startsWith('./assets/images/') || asset.startsWith('./assets/fonts/')) {
+            const img = new Image();
+            img.onload = assetLoaded;
+            img.onerror = assetLoaded; // Continue even if image fails
+            img.src = asset;
+          } else {
+            // For external resources, just count them as loaded
+            assetLoaded();
+          }
+        });
+      }
+      
+      // Initialize preloader on page load
+      document.addEventListener("DOMContentLoaded", initPreloader);
     </script>
   </body>
 </html>
