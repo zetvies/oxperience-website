@@ -13,8 +13,11 @@
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
     <!-- Age Verification Modal -->
-    <div id="ageVerificationModal" class="fixed inset-0 bg-[#c4341e] z-[200] flex items-center justify-center opacity-100 hidden">
-      <div class="text-center px-[8svw] ">
+    <div
+      id="ageVerificationModal"
+      class="fixed inset-0 bg-[#c4341e] z-[200] flex items-center justify-center opacity-100 hidden"
+    >
+      <div class="text-center px-[8svw]">
         <!-- OXPERIENCE Logo -->
         <div class="mb-[8svh]">
           <img
@@ -23,17 +26,19 @@
             class="h-[15svh] w-auto mx-auto"
           />
         </div>
-        
+
         <!-- Title -->
         <h1 class="text-white font-bold text-[6svw] lg:text-[4svh] mb-[4svh]">
           Age Verification
         </h1>
-        
+
         <!-- Instructional Text -->
-        <p class="text-white font-bold text-[4svw] lg:text-[2.5svh] mb-[6svh] leading-tight">
+        <p
+          class="text-white font-bold text-[4svw] lg:text-[2.5svh] mb-[6svh] leading-tight"
+        >
           You must be 21 years old to visit our website.
         </p>
-        
+
         <!-- Checkbox and Confirmation Text -->
         <div class="flex items-start justify-center mb-[6svh]">
           <input
@@ -41,11 +46,14 @@
             id="ageConfirm"
             class="w-[4svw] h-[4svw] lg:w-[2svh] lg:h-[2svh] mr-[2svw] lg:mr-[1svh] mt-[0.5svw] lg:mt-[0.25svh]"
           />
-          <label for="ageConfirm" class="text-white text-[3.5svw] lg:text-[2svh] text-left leading-tight">
+          <label
+            for="ageConfirm"
+            class="text-white text-[3.5svw] lg:text-[2svh] text-left leading-tight"
+          >
             I confirm that I am 21 years old or over
           </label>
         </div>
-        
+
         <!-- Enter Button -->
         <button
           id="enterButton"
@@ -58,415 +66,493 @@
     </div>
 
     <!-- Chessboard texture overlay -->
-    <div 
+    <div
       id="globalHalftone"
       class="fixed inset-0 pointer-events-none z-[5] opacity-0 transition-opacity duration-1000 ease-in-out"
-      style="background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.1) 75%); background-size: 8px 8px; background-position: 0 0, 0 4px, 4px -4px, -4px 0px;"
+      style="
+        background-image: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.1) 25%,
+            transparent 25%
+          ),
+          linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%),
+          linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+        background-size: 8px 8px;
+        background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+      "
     ></div>
     <!-- Main Content Wrapper -->
-    <div id="mainContent" class="opacity-0 transition-opacity duration-1000 ease-in-out">
+    <div
+      id="mainContent"
+      class="opacity-0 transition-opacity duration-1000 ease-in-out"
+    >
       <nav
         class="flex w-full justify-between px-[5svw] py-[3svh] z-[99] fixed top-0 left-0 fixed"
       >
-      <div class="hover:cursor-pointer z-[80] flex items-center" onclick="scrollToHome()">
-        <img
-          src="./assets/images/oxperience_logo.svg"
-          alt="oxperience_logo"
-          class="lg:h-[10svh] h-auto w-[25svw] lg:w-auto"
-        /> 
-        <img
-      src="./assets/images/powered-by.png"
-      alt="oxperience_logo"
-      class="lg:h-[4svh] h-auto w-[24svw] lg:w-auto lg:ml-[3svh] ml-[2svh] hidden lg:block"
-    />
-      </div>
-      <div
-        class="hidden lg:flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
-      >
-      
-        <a
-          href="#home"
-          class="hover:cursor-pointer hover:underline transition-colors"
-          >Countdown</a
-        >
-        <a
-          href="#about"
-          class="hover:cursor-pointer hover:underline px-[2svh] mx-[2svh] border-x-[.25svh] transition-colors"
-        >
-          About
-        </a>
-        <a
-          href="#tickets"
-          class="hover:cursor-pointer hover:underline transition-colors"
-          >Ticket</a
-        >
-        <a
-          href="#venue"
-          class="hover:cursor-pointer hover:underline pl-[2svh] ml-[2svh] border-l-[.25svh] transition-colors"
-        >
-          Venue
-        </a>
-      </div>
-
-      <!-- Mobile Hamburger Menu -->
-      <div class="lg:hidden flex items-center z-[100]">
-        <img
-        src="./assets/images/powered-by.png"
-        alt="oxperience_logo"
-        class="lg:h-[4svh] h-auto w-[24svw] lg:w-auto lg:ml-[3svh] lg:mr-0 mr-[3svh] block lg:hidden"
-      />
-        <button
-          id="mobile-menu-btn"
-          class="flex flex-col justify-center items-center w-[8svw] h-[8svw] space-y-[0.5svw] transition-all duration-300"
-        >
-          <span
-            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
-          ></span>
-          <span
-            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
-          ></span>
-          <span
-            class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
-          ></span>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Mobile Sidebar Overlay -->
-    <div
-      id="mobile-overlay"
-      class="fixed inset-0 bg-black/50 z-[100] hidden lg:hidden transition-opacity duration-300"
-    ></div>
-
-    <!-- Mobile Sidebar -->
-    <div
-      id="mobile-sidebar"
-      class="fixed top-0 right-0 h-full w-[80svw] bg-[#c4341e] z-[110] transform translate-x-full transition-transform duration-300 lg:hidden"
-    >
-      <div class="flex flex-col h-full p-[5svw]">
-        <!-- Close button -->
-        <div class="flex justify-end mb-[10svh]">
-          <button
-            id="mobile-close-btn"
-            class="relative w-[8svw] h-[8svw] transition-all duration-300"
-          >
-            <span
-              class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 rotate-45 transition-all duration-300"
-            ></span>
-            <span
-              class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 -rotate-45 transition-all duration-300"
-            ></span>
-          </button>
-        </div>
-
-        <!-- Navigation Links -->
         <div
-          class="flex flex-col space-y-[6svh] font-roboto-mono font-normal uppercase text-[3svh]"
+          class="hover:cursor-pointer z-[80] flex items-center"
+          onclick="scrollToHome()"
+        >
+          <img
+            src="./assets/images/oxperience_logo.svg"
+            alt="oxperience_logo"
+            class="lg:h-[10svh] h-auto w-[25svw] lg:w-auto"
+          />
+          <img
+            src="./assets/images/powered-by.png"
+            alt="oxperience_logo"
+            class="lg:h-[4svh] h-auto w-[24svw] lg:w-auto lg:ml-[3svh] ml-[2svh] hidden lg:block"
+          />
+        </div>
+        <div
+          class="hidden lg:flex items-center font-roboto-mono font-normal uppercase text-[3svh] leading-[2.5svh]"
         >
           <a
             href="#home"
-            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
-            onclick="closeMobileMenu()"
+            class="hover:cursor-pointer hover:underline transition-colors"
+            >Countdown</a
           >
-            Countdown
-          </a>
           <a
             href="#about"
-            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
-            onclick="closeMobileMenu()"
+            class="hover:cursor-pointer hover:underline px-[2svh] mx-[2svh] border-x-[.25svh] transition-colors"
           >
             About
           </a>
           <a
             href="#tickets"
-            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
-            onclick="closeMobileMenu()"
+            class="hover:cursor-pointer hover:underline transition-colors"
+            >Ticket</a
           >
-            Ticket
-          </a>
           <a
             href="#venue"
-            class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
-            onclick="closeMobileMenu()"
+            class="hover:cursor-pointer hover:underline pl-[2svh] ml-[2svh] border-l-[.25svh] transition-colors"
           >
             Venue
           </a>
         </div>
-      </div>
-    </div>
-    <div
-      class="absolute hidden lg:block top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-a.gif"
-        alt="animation-a"
-        class="h-[150svh] w-auto"
-      />
-    </div>
-    <div
-      class="absolute hidden lg:block bottom-[-10svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-b.gif"
-        alt="animation-b"
-        class="h-[130svh] w-auto"
-      />
-    </div>
 
-    <div
-      class="absolute hidden lg:block top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[20] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-c.gif"
-        alt="animation-a"
-        class="h-[100svh] w-auto"
-      />
-    </div>
-    <div
-      class="absolute hidden lg:block top-[130svh] right-[-50svw] w-full h-full bg-black-50 z-[20] pointer-events-none"
-    >
-      <img
-        src="./assets/images/animation-d.gif"
-        alt="animation-b"
-        class="h-[170svh] w-auto"
-      />
-    </div>
-    <section
-      id="home"
-      class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent overflow-hidden"
-    >
+        <!-- Mobile Hamburger Menu -->
+        <div class="lg:hidden flex items-center z-[100]">
+          <img
+            src="./assets/images/powered-by.png"
+            alt="oxperience_logo"
+            class="lg:h-[4svh] h-auto w-[24svw] lg:w-auto lg:ml-[3svh] lg:mr-0 mr-[3svh] block lg:hidden"
+          />
+          <button
+            id="mobile-menu-btn"
+            class="flex flex-col justify-center items-center w-[8svw] h-[8svw] space-y-[0.5svw] transition-all duration-300"
+          >
+            <span
+              class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+            ></span>
+            <span
+              class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+            ></span>
+            <span
+              class="w-full h-[0.4svw] bg-white rounded-full transition-all duration-300 transform origin-center"
+            ></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Sidebar Overlay -->
       <div
-        class="absolute block lg:hidden top-[-15svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
+        id="mobile-overlay"
+        class="fixed inset-0 bg-black/50 z-[100] hidden lg:hidden transition-opacity duration-300"
+      ></div>
+
+      <!-- Mobile Sidebar -->
+      <div
+        id="mobile-sidebar"
+        class="fixed top-0 right-0 h-full w-[80svw] bg-[#c4341e] z-[110] transform translate-x-full transition-transform duration-300 lg:hidden"
+      >
+        <div class="flex flex-col h-full p-[5svw]">
+          <!-- Close button -->
+          <div class="flex justify-end mb-[10svh]">
+            <button
+              id="mobile-close-btn"
+              class="relative w-[8svw] h-[8svw] transition-all duration-300"
+            >
+              <span
+                class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 rotate-45 transition-all duration-300"
+              ></span>
+              <span
+                class="absolute top-1/2 left-0 w-full h-[0.4svw] bg-white rounded-full transform -translate-y-1/2 -rotate-45 transition-all duration-300"
+              ></span>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div
+            class="flex flex-col space-y-[6svh] font-roboto-mono font-normal uppercase text-[3svh]"
+          >
+            <a
+              href="#home"
+              class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+              onclick="closeMobileMenu()"
+            >
+              Countdown
+            </a>
+            <a
+              href="#about"
+              class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+              onclick="closeMobileMenu()"
+            >
+              About
+            </a>
+            <a
+              href="#tickets"
+              class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+              onclick="closeMobileMenu()"
+            >
+              Ticket
+            </a>
+            <a
+              href="#venue"
+              class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
+              onclick="closeMobileMenu()"
+            >
+              Venue
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute hidden lg:block top-[-40svh] left-[-25svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
       >
         <img
           src="./assets/images/animation-a.gif"
           alt="animation-a"
-          class="h-[120svh] w-[120svh] object-cover"
+          class="h-[150svh] w-auto"
         />
       </div>
-
       <div
-        class="font-anona font-bold uppercase text-[14svw] leading-[13svw] lg:text-[8svw] lg:leading-[7svw] text-center z-[25]"
-      >
-        <span class="lg:mr-[26.4svw]">Wander to</span> <br />
-        <span class="lg:ml-[38svw]">Flavors</span>
-      </div>
-      <div class="w-[80svw] h-[.3svh] bg-white my-[4svh] z-[25]" />
-      <div
-        class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[7svw] lg:text-[6svw] mt-[4svh] lg:mt-[0svh] leading-[8svw] z-[25]"
-        id="countdown"
-      >
-        X DAYS TO GO
-      </div>
-    </section>
-    <section
-      id="about"
-      class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] pb-[50svh] lg:pb-0 relative z-[50] mt-[20svh] overflow-hidden"
-    >
-      <div
-        class="absolute block lg:hidden top-[0svh] right-[-30svw] w-full h-full z-[10] pointer-events-none"
+        class="absolute hidden lg:block bottom-[-10svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
       >
         <img
           src="./assets/images/animation-b.gif"
           alt="animation-b"
-          class="h-[60svh] w-[60svh] object-cover"
+          class="h-[130svh] w-auto"
         />
       </div>
+
       <div
-        class="absolute block lg:hidden bottom-[0] left-[-20svw] bg-black-50 z-[10] pointer-events-none"
+        class="absolute hidden lg:block top-[150svh] right-[-30svw] w-full h-full bg-black-50 z-[20] pointer-events-none"
       >
         <img
           src="./assets/images/animation-c.gif"
-          alt="animation-c"
-          class="h-[50svh] w-[50svh] object-cover"
-        />
-      </div>
-      <div
-        class="absolute block lg:hidden bottom-[-10svh] right-[-30svw] bg-black-50 z-[1] pointer-events-none"
-      >
-        <img
-          src="./assets/images/animation-d.gif"
-          alt="animation-d"
-          class="h-[70svh] w-[70svh] object-cover"
-        />
-      </div>
-      <div
-        class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh] z-[25]"
-      >
-        <div
-          class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider"
-        >
-          About
-        </div>
-        <div
-          class="font-roboto-mono font-normal lg:text-[2.7svh] text-[2.4svh] flex flex-col gap-[4svh]"
-        >
-          <p>
-            An experience designed to take the audience on a journey of sensory
-            euphoria through music and breathtaking scenery of flavors.
-          </p>
-          <p>
-            This festival is held in celebration of oxva’s 6th
-            anniversary,marking a milestone in its journey. A music festival was
-            organized to provide fans with an unforgettable experience.
-          </p>
-          <p>
-            Beyond that, this event also serves as a platform for oxva to
-            enhance brand engagement and awareness, while potentially expanding
-            its customer base to include vaping enthusiasts.
-          </p>
-        </div>
-      </div>
-      <div
-        class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh] z-[20]"
-      >
-        <div
-          class="uppercase font-bold lg:text-[8svh] text-[9svw] lg:leading-[11svh] leading-[10svw]"
-        >
-          OXPERIENCE 2025 <br />
-          MUSIC FESTIVAL <br />
-          COMING SOON
-        </div>
-
-        <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
-      </div>
-    </section>
-    <section
-      id="tickets"
-      class="lg:h-[100svh] w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
-    >
-      <div
-        class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
-      >
-        <img
-          src="./assets/images/animation-a.gif"
-          alt="animation-b"
-          class="h-[160svh] w-auto"
-        />
-      </div>
-      <canvas
-        id="ticketBackground"
-        class="absolute inset-0 w-full h-[100svh] z-[1]"
-        style="background-color: #c33723"
-      ></canvas>
-
-      <!-- Canvas halftone overlay -->
-      <div 
-        id="canvasHalftone"
-        class="absolute inset-0 pointer-events-none z-[2]"
-        style="background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.1) 75%); background-size: 8px 8px; background-position: 0 0, 0 4px, 4px -4px, -4px 0px;"
-      ></div>
-
-      <div
-        class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[1]"
-      ></div>
-      <div
-        id="tickets"
-        class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
-      >
-        Ticket Information
-      </div>
-      <div
-        class="w-full lg:h-full mt-[5svh] lg:mt-0 flex justify-center items-center z-[15]"
-      >
-        <div
-          class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex justify-center items-center"
-        >
-          <img
-            src="./assets/images/ticket-outline.svg"
-            alt="ticket-button"
-            class="absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300"
-          />
-          <!-- <img
-            src="./assets/images/ticket-fill.svg"
-            alt="ticket-button"
-            class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          /> -->
-          <div
-            class="font-bold text-[8svw] lg:text-[6svh] tracking-wider uppercase z-[15]"
-          >
-            Coming Soon
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="venue"
-      class="flex flex-col justify-center items-center lg:items-start lg:pl-[12svw] pt-[10svh] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden"
-    >
-      <div
-        class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
-      >
-        <img
-          src="./assets/images/animation-c.gif"
-          alt="animation-c"
+          alt="animation-a"
           class="h-[100svh] w-auto"
         />
       </div>
       <div
-        class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]"
+        class="absolute hidden lg:block top-[130svh] right-[-50svw] w-full h-full bg-black-50 z-[20] pointer-events-none"
       >
-        Venue Information
+        <img
+          src="./assets/images/animation-d.gif"
+          alt="animation-b"
+          class="h-[170svh] w-auto"
+        />
       </div>
-      <div class="flex">
-        <div class="relative">
-          <div
-            class="h-[36svw] lg:h-[31.5svw] lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
-          >
-            <img
-              src="./assets/images/venue-1.png"
-              alt="venue-1"
-              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
-              id="venue-1"
-            />
-            <img
-              src="./assets/images/venue-2.png"
-              alt="venue-2"
-              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-              id="venue-2"
-            />
-            <img
-              src="./assets/images/venue-3.png"
-              alt="venue-3"
-              class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-              id="venue-3"
-            />
-
-            <!-- Gradient ripple overlay -->
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
-              id="ripple-overlay"
-            ></div>
-          </div>
-     
-
-          <!-- Navigation dots -->
-          <div
-            class="absolute lg:bottom-[5svh] bottom-[5svw] lg:left-[35svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
-          >
-            <div
-              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-              data-index="0"
-            ></div>
-            <div
-              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-              data-index="1"
-            ></div>
-            <div
-              class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-              data-index="2"
-            ></div>
-          </div>
-         
+      <section
+        id="home"
+        class="flex flex-col justify-center items-center h-[100svh] w-full relative z-[50] bg-transparent overflow-hidden"
+      >
+        <div
+          class="absolute block lg:hidden top-[-15svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-a.gif"
+            alt="animation-a"
+            class="h-[120svh] w-[120svh] object-cover"
+          />
         </div>
-      </div>
-      <div
-      class="mt-[1svh] font-roboto-mono lg:text-[3svh] text-[5svw] tracking-wider mb-[2svh] "
-    >
-      Plaza Barat, GBK
-    </div>
-    </section>
+
+        <div
+          class="font-anona font-bold uppercase text-[14svw] leading-[13svw] lg:text-[8svw] lg:leading-[7svw] text-center z-[25]"
+        >
+          <span class="lg:mr-[26.4svw]">Wander to</span> <br />
+          <span class="lg:ml-[38svw]">Flavors</span>
+        </div>
+        <div class="w-[80svw] h-[.3svh] bg-white my-[4svh] z-[25]" />
+        <div
+          class="font-roboto-mono w-full flex justify-center font-normal uppercase text-[7svw] lg:text-[6svw] mt-[4svh] lg:mt-[0svh] leading-[8svw] z-[25]"
+          id="countdown"
+        >
+          X DAYS TO GO
+        </div>
+      </section>
+      <section
+        id="about"
+        class="flex flex-col-reverse lg:flex-row w-full min-h-[90svh] justify-center items-center px-[8svw] pt-[20svh] pb-[50svh] lg:pb-0 relative z-[50] mt-[20svh] overflow-hidden"
+      >
+        <div
+          class="absolute block lg:hidden top-[0svh] right-[-30svw] w-full h-full z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-b.gif"
+            alt="animation-b"
+            class="h-[60svh] w-[60svh] object-cover"
+          />
+        </div>
+        <div
+          class="absolute block lg:hidden bottom-[0] left-[-20svw] bg-black-50 z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-c.gif"
+            alt="animation-c"
+            class="h-[50svh] w-[50svh] object-cover"
+          />
+        </div>
+        <div
+          class="absolute block lg:hidden bottom-[-10svh] right-[-30svw] bg-black-50 z-[1] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-d.gif"
+            alt="animation-d"
+            class="h-[70svh] w-[70svh] object-cover"
+          />
+        </div>
+        <div
+          class="flex flex-col text-left flex-1 lg:gap-[5svh] gap-[3svh] lg:border-r-[0.25svh] lg:pr-[10svh] lg:h-[80svh] z-[25]"
+        >
+          <div
+            class="uppercase font-bold lg:text-[4svh] text-[3.5svh] tracking-wider"
+          >
+            About
+          </div>
+          <div
+            class="font-roboto-mono font-normal lg:text-[2.7svh] text-[2.4svh] flex flex-col gap-[4svh]"
+          >
+            <p>
+              An experience designed to take the audience on a journey of
+              sensory euphoria through music and breathtaking scenery of
+              flavors.
+            </p>
+            <p>
+              This festival is held in celebration of oxva’s 6th
+              anniversary,marking a milestone in its journey. A music festival
+              was organized to provide fans with an unforgettable experience.
+            </p>
+            <p>
+              Beyond that, this event also serves as a platform for oxva to
+              enhance brand engagement and awareness, while potentially
+              expanding its customer base to include vaping enthusiasts.
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh] z-[20]"
+        >
+          <div
+            class="uppercase font-bold lg:text-[8svh] text-[9svw] lg:leading-[11svh] leading-[10svw]"
+          >
+            OXPERIENCE 2025 <br />
+            MUSIC FESTIVAL <br />
+            COMING SOON
+          </div>
+
+          <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
+        </div>
+      </section>
+      <section
+        id="tickets"
+        class="lg:h-[100svh] w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
+      >
+        <div
+          class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-a.gif"
+            alt="animation-b"
+            class="h-[160svh] w-auto"
+          />
+        </div>
+        <canvas
+          id="ticketBackground"
+          class="absolute inset-0 w-full h-[100svh] z-[1]"
+          style="background-color: #c33723"
+        ></canvas>
+
+        <!-- Canvas halftone overlay -->
+        <div
+          id="canvasHalftone"
+          class="absolute inset-0 pointer-events-none z-[2]"
+          style="
+            background-image: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.1) 25%,
+                transparent 25%
+              ),
+              linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%),
+              linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%),
+              linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+            background-size: 8px 8px;
+            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+          "
+        ></div>
+
+        <div
+          class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[1]"
+        ></div>
+        <div
+          id="tickets"
+          class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
+        >
+          Ticket Information
+        </div>
+        <div
+          class="mt-[10svh] lg:mt-0 w-full lg:h-full flex flex-col justify-center items-center z-[15] gap-[4svh]"
+        >
+          <div class="z-[20] w-full flex justify-center items-center">
+            <img
+              src="/assets/images/early-bird-available.svg"
+              class="w-[60svw] hidden lg:block"
+            />
+            <div class="flex lg:hidden flex-col items-center justify-center gap-[2svh]">
+              <img
+              src="/assets/images/early-bird.svg"
+              class="w-[60svw]"
+            /><img
+            src="/assets/images/available.svg"
+            class="w-[60svw] "
+          />
+            </div>
+          </div>
+          <div
+            class="flex items-center lg:gap-[12svh] flex-col-reverse lg:flex-row"
+          >
+            <div
+              class="lg:text-[13svh] text-[8svw] text-[#e3fd55] font-semibold mt-[2svh] lg:mt-0"
+            >
+              Rp180K
+            </div>
+            <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank">
+              <div
+                class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
+              >
+                <img
+                  src="./assets/images/ticket-outline.svg"
+                  alt="ticket-button"
+                  class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                />
+                <img
+                  src="./assets/images/ticket-fill.svg"
+                  alt="ticket-button"
+                  class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <div
+                  class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
+                >
+                  Buy Ticket
+                </div>
+              </div>
+              <div
+                class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
+              >
+                <img
+                  src="./assets/images/ticket-fill.svg"
+                  alt="ticket-button"
+                  class="absolute top-0 left-0 h-full w-full object-contain"
+                />
+                <div
+                  class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
+                >
+                  Buy Ticket
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full">
+          <div>* Harga tiket tidak termasuk pajak</div>
+          <div>
+            <span
+              >* Tiket termasuk pembelian merchandise yang bisa ditukar
+              </span>
+              <br class="hidden lg:block" />
+              <span class="lg:ml-[1.7svh]">
+              di dalam acara dengan persetujuan pengunjung.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="venue"
+        class="flex flex-col justify-center items-center lg:items-start lg:pl-[12svw] pt-[10svh] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[15svh]"
+      >
+        <div
+          class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-c.gif"
+            alt="animation-c"
+            class="h-[100svh] w-auto"
+          />
+        </div>
+        <div
+          class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]"
+        >
+          Venue Information
+        </div>
+        <div class="flex">
+          <div class="relative">
+            <div
+              class="h-[36svw] lg:h-[31.5svw] lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+            >
+              <img
+                src="./assets/images/venue-1.png"
+                alt="venue-1"
+                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
+                id="venue-1"
+              />
+              <img
+                src="./assets/images/venue-2.png"
+                alt="venue-2"
+                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                id="venue-2"
+              />
+              <img
+                src="./assets/images/venue-3.png"
+                alt="venue-3"
+                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                id="venue-3"
+              />
+
+              <!-- Gradient ripple overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
+                id="ripple-overlay"
+              ></div>
+            </div>
+
+            <!-- Navigation dots -->
+            <div
+              class="absolute lg:bottom-[5svh] bottom-[5svw] lg:left-[35svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
+            >
+              <div
+                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                data-index="0"
+              ></div>
+              <div
+                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                data-index="1"
+              ></div>
+              <div
+                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                data-index="2"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-[1svh] font-roboto-mono lg:text-[3svh] text-[5svw] tracking-wider mb-[2svh]"
+        >
+          Plaza Barat, GBK
+        </div>
+      </section>
     </div>
 
     <script>
@@ -802,7 +888,7 @@
           canvas.style.left = "0";
           canvas.style.width = "100%";
           canvas.style.height = `${combinedHeight}px`;
-          
+
           halftone.style.position = "fixed";
           halftone.style.top = "0";
           halftone.style.left = "0";
@@ -815,7 +901,7 @@
           canvas.style.left = "0";
           canvas.style.width = "100%";
           canvas.style.height = `${combinedHeight}px`;
-          
+
           halftone.style.position = "absolute";
           halftone.style.top = "0";
           halftone.style.left = "0";
@@ -969,7 +1055,7 @@
           // Show content immediately if already verified
           const halftone = document.getElementById("globalHalftone");
           const mainContent = document.getElementById("mainContent");
-          
+
           halftone.style.opacity = "1";
           mainContent.style.opacity = "1";
           return; // Modal stays hidden
@@ -977,17 +1063,17 @@
 
         // Show modal if user hasn't verified age
         modal.classList.remove("hidden");
-        
+
         // Disable scrolling when modal is shown
         document.body.style.overflow = "hidden";
 
         // Handle checkbox change
-        checkbox.addEventListener("change", function() {
+        checkbox.addEventListener("change", function () {
           enterButton.disabled = !this.checked;
         });
 
         // Handle enter button click
-        enterButton.addEventListener("click", function() {
+        enterButton.addEventListener("click", function () {
           if (checkbox.checked) {
             localStorage.setItem("ageVerified", "true");
             // Fade out animation
@@ -997,11 +1083,11 @@
               modal.style.display = "none";
               // Enable scrolling on body
               document.body.style.overflow = "";
-              
+
               // Fade in halftone and content
               const halftone = document.getElementById("globalHalftone");
               const mainContent = document.getElementById("mainContent");
-              
+
               halftone.style.opacity = "1";
               mainContent.style.opacity = "1";
             }, 500);
