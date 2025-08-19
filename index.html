@@ -13,8 +13,8 @@
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-[#c4341e] z-[300] flex items-center justify-center">
+         <!-- Preloader -->
+     <div id="preloader" class="fixed inset-0 bg-[#c4341e] z-[300] flex items-center justify-center hidden">
       <div class="text-center">
         <!-- OXPERIENCE Logo -->
         <div class="mb-[8svh]">
@@ -25,19 +25,9 @@
           />
         </div>
         
-        <!-- Loading Text -->
-        <div class="text-white font-bold text-[4svw] lg:text-[2.5svh] mb-[4svh]">
-          Loading...
-        </div>
-        
         <!-- Progress Bar -->
         <div class="w-[60svw] lg:w-[40svh] bg-white/20 rounded-full h-[1svh] overflow-hidden">
           <div id="progressBar" class="bg-white h-full rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
-        </div>
-        
-        <!-- Progress Text -->
-        <div id="progressText" class="text-white text-[3svw] lg:text-[1.8svh] mt-[2svh]">
-          0%
         </div>
       </div>
     </div>
@@ -1131,9 +1121,18 @@
       function initPreloader() {
         const preloader = document.getElementById("preloader");
         const progressBar = document.getElementById("progressBar");
-        const progressText = document.getElementById("progressText");
         
-        // List of local assets to preload (only count these for percentage)
+        // Check if assets have been cached before
+        if (localStorage.getItem("assetsCached") === "true") {
+          // Assets already cached, skip preloader and go directly to age verification
+          initAgeVerification();
+          return;
+        }
+        
+        // Show preloader for first-time visitors
+        preloader.classList.remove("hidden");
+        
+        // List of local assets to preload
         const localAssets = [
           // Fonts
           './assets/fonts/Anona_Extrabold_Italic.otf',
@@ -1166,7 +1165,6 @@
         function updateProgress() {
           const percentage = Math.min(Math.round((loadedCount / totalAssets) * 100), 100);
           progressBar.style.width = `${percentage}%`;
-          progressText.textContent = `${percentage}%`;
         }
         
         function assetLoaded() {
@@ -1174,7 +1172,9 @@
           updateProgress();
           
           if (loadedCount >= totalAssets) {
-            // All local assets loaded, hide preloader and show age verification
+            // All local assets loaded, mark as cached and hide preloader
+            localStorage.setItem("assetsCached", "true");
+            
             setTimeout(() => {
               preloader.style.transition = "opacity 0.5s ease-out";
               preloader.style.opacity = "0";
@@ -1192,7 +1192,7 @@
         fontFaceObserver.load().then(() => {
           assetLoaded();
         }).catch(() => {
-          assetLoaded(); // Continue even if font fails
+          assetLoaded(); // Continue even if image fails
         });
         
         // Preload local images and fonts
