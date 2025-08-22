@@ -489,10 +489,58 @@
           </div>
         </div>
       </section>
+
       <section
         id="tickets"
-        class="lg:h-[100svh] w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
+        class="w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
       >
+        <section class="lg:ml-[12svh] mt-[20svh]">
+          <div class="flex flex-col lg:flex-row">
+            <div
+              id="lineup"
+              class="uppercase font-bold text-[7svw] mb-[4svh] lg:text-[4svh] tracking-wider z-[50] w-full lg:w-fit justify-center flex"
+            >
+              Line Up
+            </div>
+            <div
+              class="flex flex-col lg:flex-row lg:ml-[8svh] gap-[4svh] z-[20]"
+            >
+              <div class="relative">
+                <div
+                  class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                >
+                  Isyana<br />Sarasvati
+                </div>
+                <img
+                  src="./assets/images/isyana.png"
+                  alt="lineup-1"
+                  class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
+                />
+              </div>
+              <div class="relative lg:mt-[5svh]">
+                <div
+                  class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                >
+                  HIVI!
+                </div>
+                <img
+                  src="./assets/images/hivi.png"
+                  alt="lineup-2"
+                  class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <div
+          class="flex justify-center w-full mt-[4svh] lg:mb-[10svh] mb-[8svh] lg:mb-0 z-[50]"
+        >
+          <div
+            class="text-[3svh] font-bold text-white uppercase bg-[#c4341e] lg:ml-[20svh] rounded-full px-[2svh] py-[1svh] "
+          >
+            and more to come!
+          </div>
+        </div>
         <div
           class="absolute hidden lg:block top-[30svh] left-[-30svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
         >
@@ -529,91 +577,10 @@
         <div
           class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[1]"
         ></div>
+        <div class="flex flex-col h-[100svh] w-full">
+          
         <div
-          id="tickets"
-          class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
-        >
-          Ticket Information
-        </div>
-        <div
-          class="mt-[10svh] lg:mt-0 w-full lg:h-full flex flex-col justify-center items-center z-[15] gap-[4svh]"
-        >
-          <div class="z-[20] w-full flex justify-center items-center">
-            <img
-              src="/assets/images/early-bird-available.svg"
-              class="w-[60svw] hidden lg:block"
-            />
-            <div
-              class="flex lg:hidden flex-col items-center justify-center gap-[2svh]"
-            >
-              <img src="/assets/images/early-bird.svg" class="w-[60svw]" /><img
-                src="/assets/images/available.svg"
-                class="w-[60svw]"
-              />
-            </div>
-          </div>
-          <div
-            class="flex items-center lg:gap-[12svh] flex-col-reverse lg:flex-row"
-          >
-            <div
-              class="lg:text-[13svh] text-[8svw] text-[#e3fd55] font-semibold mt-[2svh] lg:mt-0"
-            >
-              Rp180K
-            </div>
-            <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank">
-              <div
-                class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
-              >
-                <img
-                  src="./assets/images/ticket-outline.svg"
-                  alt="ticket-button"
-                  class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                />
-                <img
-                  src="./assets/images/ticket-fill.svg"
-                  alt="ticket-button"
-                  class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                />
-                <div
-                  class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
-                >
-                  Buy Ticket
-                </div>
-              </div>
-              <div
-                class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
-              >
-                <img
-                  src="./assets/images/ticket-fill.svg"
-                  alt="ticket-button"
-                  class="absolute top-0 left-0 h-full w-full object-contain"
-                />
-                <div
-                  class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
-                >
-                  Buy Ticket
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div
-          class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full"
-        >
-          <div>* Harga tiket belum termasuk pajak dan service.</div>
-          <div>
-            <span
-              >* Pembelian tiket sudah termasuk mendapatkan merchandise
-              eksklusif
-            </span>
-            <br class="hidden lg:block" />
-            <span class="lg:ml-[1.7svh]">
-              gratis yang dapat ditukarkan di dalam venue.</span
-            >
-          </div>
-        </div>
-        <div
-          class="absolute block lg:hidden bottom-[-80svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
+          class="absolute block lg:hidden bottom-[50svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
         >
           <img
             src="./assets/images/animation-a.gif"
@@ -621,13 +588,97 @@
             class="h-[120svh] w-[120svh] object-cover"
           />
         </div>
+          <div
+            id="tickets"
+            class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
+          >
+            Ticket Information
+          </div>
+          <div
+            class="mt-[10svh] lg:mt-0 w-full lg:h-full flex flex-col justify-center items-center z-[15] gap-[4svh]"
+          >
+            <div class="z-[20] w-full flex justify-center items-center">
+              <img
+                src="/assets/images/early-bird-available.svg"
+                class="w-[60svw] hidden lg:block"
+              />
+              <div
+                class="flex lg:hidden flex-col items-center justify-center gap-[2svh]"
+              >
+                <img
+                  src="/assets/images/early-bird.svg"
+                  class="w-[60svw]"
+                /><img src="/assets/images/available.svg" class="w-[60svw]" />
+              </div>
+            </div>
+            <div
+              class="flex items-center lg:gap-[12svh] flex-col-reverse lg:flex-row"
+            >
+              <div
+                class="lg:text-[13svh] text-[8svw] text-[#e3fd55] font-semibold mt-[2svh] lg:mt-0"
+              >
+                Rp180K
+              </div>
+              <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank">
+                <div
+                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="./assets/images/ticket-outline.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                  />
+                  <img
+                    src="./assets/images/ticket-fill.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <div
+                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
+                  >
+                    Buy Ticket
+                  </div>
+                </div>
+                <div
+                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="./assets/images/ticket-fill.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain"
+                  />
+                  <div
+                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
+                  >
+                    Buy Ticket
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full"
+          >
+            <div>* Harga tiket belum termasuk pajak dan service.</div>
+            <div>
+              <span
+                >* Pembelian tiket sudah termasuk mendapatkan merchandise
+                eksklusif
+              </span>
+              <br class="hidden lg:block" />
+              <span class="lg:ml-[1.7svh]">
+                gratis yang dapat ditukarkan di dalam venue.</span
+              >
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <section
         id="venue"
-        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw] pt-[10svh] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[15svh]"
+        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw]  pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden lg:mt-[15svh]"
       >
-        
         <div
           class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
         >
@@ -637,50 +688,9 @@
             class="h-[100svh] w-auto"
           />
         </div>
-        <div class="flex flex-col lg:flex-row lg:ml-[12svh]">
-          <div
-            id="lineup"
-            class="uppercase font-bold text-[7svw] mb-[4svh] lg:text-[4svh] tracking-wider z-[50] w-full lg:w-fit justify-center flex"
-          >
-            Line Up
-          </div>
-          <div class="flex flex-col lg:flex-row lg:ml-[8svh] gap-[4svh] z-[20]">
-            <div class="relative">
-              <div
-                class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
-              >
-                Isyana<br />Sarasvati
-              </div>
-              <img
-                src="./assets/images/isyana.png"
-                alt="lineup-1"
-                class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
-              />
-            </div>
-            <div class="relative lg:mt-[5svh]">
-              <div
-                class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
-              >
-                HIVI!
-              </div>
-              <img
-                src="./assets/images/hivi.png"
-                alt="lineup-2"
-                class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center w-full mt-[4svh] lg:mb-[15svh] mb-[8svh] ">
-          <div
-            class="text-[3svh] font-bold text-white uppercase bg-[#c4341e] lg:mr-[20svh] rounded-full px-[2svh] py-[1svh] mb-[10svh]"
-          >
-            and more to come!
-          </div>
-        </div>
 
         <div
-          class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]"
+          class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh] lg:mt-[10svh]"
         >
           Venue Information
         </div>
