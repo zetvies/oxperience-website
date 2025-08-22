@@ -13,8 +13,11 @@
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
   >
-         <!-- Preloader -->
-     <div id="preloader" class="fixed inset-0 bg-[#c4341e] z-[300] flex items-center justify-center hidden">
+    <!-- Preloader -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-[#c4341e] z-[300] flex items-center justify-center hidden"
+    >
       <div class="text-center">
         <!-- OXPERIENCE Logo -->
         <div class="mb-[8svh]">
@@ -24,10 +27,16 @@
             class="h-[15svh] w-auto mx-auto"
           />
         </div>
-        
+
         <!-- Progress Bar -->
-        <div class="w-[60svw] lg:w-[40svh] bg-white/20 rounded-full h-[1svh] overflow-hidden">
-          <div id="progressBar" class="bg-white h-full rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+        <div
+          class="w-[60svw] lg:w-[40svh] bg-white/20 rounded-full h-[1svh] overflow-hidden"
+        >
+          <div
+            id="progressBar"
+            class="bg-white h-full rounded-full transition-all duration-300 ease-out"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
     </div>
@@ -361,19 +370,123 @@
               expanding its customer base to include vaping enthusiasts.
             </p>
           </div>
+          <div class="flex lg:hidden">
+            <div class="relative">
+              <div
+                class="h-[39svw] w-[80svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+              >
+                <img
+                  src="./assets/images/venue-1.png"
+                  alt="venue-1"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
+                  id="venue-1-mobile"
+                />
+                <img
+                  src="./assets/images/venue-2.png"
+                  alt="venue-2"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                  id="venue-2-mobile"
+                />
+                <img
+                  src="./assets/images/venue-3.png"
+                  alt="venue-3"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                  id="venue-3-mobile"
+                />
+
+                <!-- Gradient ripple overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
+                  id="ripple-overlay-mobile"
+                ></div>
+              </div>
+
+              <!-- Navigation dots -->
+              <div
+                class="absolute lg:bottom-[5svh] bottom-[5svw] lg:left-[35svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
+              >
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="0"
+                ></div>
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="1"
+                ></div>
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="2"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="flex flex-col text-left flex-1 w-full lg:pl-[10svh] justify-start lg:h-[80svh] z-[20]"
         >
-          <div
-            class="uppercase font-bold lg:text-[8svh] text-[9svw] lg:leading-[11svh] leading-[10svw]"
-          >
-            OXPERIENCE 2025 <br />
-            MUSIC FESTIVAL <br />
-            COMING SOON
+          <div class="uppercase font-bold lg:text-[8svh] text-[9svw]">
+            <div class="leading-[9svw] lg:leading-[5svh]">
+              <div class="lg:text-[6svh] text-[10svw]">Plaza Barat</div>
+              <div class="lg:text-[4svh] text-[6svw]">
+                Gelora Bung Karno, JKT
+              </div>
+            </div>
+            <div class="mt-[4svh] leading-[8svw] lg:leading-[6svh]">
+              <div class="lg:text-[6svh] text-[7svw]">Saturday</div>
+              <div class="lg:text-[6svh] text-[7svw]">15 November 2025</div>
+            </div>
           </div>
+          <div class="lg:w-[30svw] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
+          <div class="lg:flex hidden mt-[4svh]">
+            <div class="relative">
+              <div
+                class="h-[39svw] lg:h-[14svw] lg:w-[30svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
+              >
+                <img
+                  src="./assets/images/venue-1.png"
+                  alt="venue-1"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
+                  id="venue-1"
+                />
+                <img
+                  src="./assets/images/venue-2.png"
+                  alt="venue-2"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                  id="venue-2"
+                />
+                <img
+                  src="./assets/images/venue-3.png"
+                  alt="venue-3"
+                  class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
+                  id="venue-3"
+                />
 
-          <div class="lg:w-[51svh] w-[75svw] h-[.3svh] bg-white my-[4svh]" />
+                <!-- Gradient ripple overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
+                  id="ripple-overlay"
+                ></div>
+              </div>
+
+              <!-- Navigation dots -->
+              <div
+                class="absolute lg:bottom-[2svh] bottom-[5svw] lg:left-[15svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
+              >
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="0"
+                ></div>
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="1"
+                ></div>
+                <div
+                  class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
+                  data-index="2"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section
@@ -430,14 +543,13 @@
               src="/assets/images/early-bird-available.svg"
               class="w-[60svw] hidden lg:block"
             />
-            <div class="flex lg:hidden flex-col items-center justify-center gap-[2svh]">
-              <img
-              src="/assets/images/early-bird.svg"
-              class="w-[60svw]"
-            /><img
-            src="/assets/images/available.svg"
-            class="w-[60svw] "
-          />
+            <div
+              class="flex lg:hidden flex-col items-center justify-center gap-[2svh]"
+            >
+              <img src="/assets/images/early-bird.svg" class="w-[60svw]" /><img
+                src="/assets/images/available.svg"
+                class="w-[60svw]"
+              />
             </div>
           </div>
           <div
@@ -485,26 +597,37 @@
             </a>
           </div>
         </div>
-        <div class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full">
-          <div>* Harga tiket belum termasuk pajak dan service.
-          </div>
+        <div
+          class="lg:text-[2svh] text-[2.8svw] text-white z-[20] text-center lg:text-left mt-[10svh] lg:mt-0 w-full"
+        >
+          <div>* Harga tiket belum termasuk pajak dan service.</div>
           <div>
             <span
-              >* 
-              Pembelian tiket sudah termasuk mendapatkan merchandise eksklusif
-              </span>
-              <br class="hidden lg:block" />
-              <span class="lg:ml-[1.7svh]">
-                gratis yang dapat ditukarkan di dalam venue.</span
+              >* Pembelian tiket sudah termasuk mendapatkan merchandise
+              eksklusif
+            </span>
+            <br class="hidden lg:block" />
+            <span class="lg:ml-[1.7svh]">
+              gratis yang dapat ditukarkan di dalam venue.</span
             >
           </div>
+        </div>
+        <div
+          class="absolute block lg:hidden bottom-[-80svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
+        >
+          <img
+            src="./assets/images/animation-a.gif"
+            alt="animation-a"
+            class="h-[120svh] w-[120svh] object-cover"
+          />
         </div>
       </section>
 
       <section
         id="venue"
-        class="flex flex-col justify-center items-center lg:items-start lg:pl-[12svw] pt-[10svh] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[15svh]"
+        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw] pt-[10svh] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[15svh]"
       >
+        
         <div
           class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
         >
@@ -514,6 +637,48 @@
             class="h-[100svh] w-auto"
           />
         </div>
+        <div class="flex flex-col lg:flex-row lg:ml-[12svh]">
+          <div
+            id="lineup"
+            class="uppercase font-bold text-[7svw] mb-[4svh] lg:text-[4svh] tracking-wider z-[50] w-full lg:w-fit justify-center flex"
+          >
+            Line Up
+          </div>
+          <div class="flex flex-col lg:flex-row lg:ml-[8svh] gap-[4svh] z-[20]">
+            <div class="relative">
+              <div
+                class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+              >
+                Isyana<br />Sarasvati
+              </div>
+              <img
+                src="./assets/images/isyana.png"
+                alt="lineup-1"
+                class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
+              />
+            </div>
+            <div class="relative lg:mt-[5svh]">
+              <div
+                class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+              >
+                HIVI!
+              </div>
+              <img
+                src="./assets/images/hivi.png"
+                alt="lineup-2"
+                class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center w-full mt-[4svh] lg:mb-[15svh] mb-[8svh]">
+          <div
+            class="text-[3svh] font-bold text-white uppercase bg-[#c4341e] rounded-full px-[2svh] py-[1svh] mb-[10svh]"
+          >
+            and more to come!
+          </div>
+        </div>
+
         <div
           class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh]"
         >
@@ -941,81 +1106,100 @@
 
       // Venue slideshow with gradient ripple effect
       function initVenueSlideshow() {
-        const images = [
+        // Initialize mobile venue gallery
+        const mobileImages = [
+          document.getElementById("venue-1-mobile"),
+          document.getElementById("venue-2-mobile"),
+          document.getElementById("venue-3-mobile"),
+        ];
+        const mobileRipple = document.getElementById("ripple-overlay-mobile");
+        const mobileDots = document.querySelectorAll("[data-index]");
+
+        // Initialize desktop venue gallery
+        const desktopImages = [
           document.getElementById("venue-1"),
           document.getElementById("venue-2"),
           document.getElementById("venue-3"),
         ];
-        const ripple = document.getElementById("ripple-overlay");
-        const dots = document.querySelectorAll("[data-index]");
-        let currentIndex = 0;
-        let isTransitioning = false;
+        const desktopRipple = document.getElementById("ripple-overlay");
+        const desktopDots = document.querySelectorAll("[data-index]");
 
-        function updateDots(index) {
-          dots.forEach((dot, i) => {
-            if (i === index) {
-              // Active dot
-              dot.style.backgroundColor = "#e3fd55";
-              dot.style.transform = "scale(1.2)";
-            } else {
-              // Inactive dot
-              dot.style.backgroundColor = "white";
-              dot.style.transform = "scale(1)";
-            }
-          });
-        }
+        // Function to initialize a venue gallery
+        function initGallery(images, ripple, dots) {
+          if (!images[0] || !ripple || !dots.length) return;
 
-        function showImage(index) {
-          if (isTransitioning) return;
-          isTransitioning = true;
+          let currentIndex = 0;
+          let isTransitioning = false;
 
-          // Hide all images
-          images.forEach((img, i) => {
-            img.style.opacity = "0";
-          });
+          function updateDots(index) {
+            dots.forEach((dot, i) => {
+              if (i === index) {
+                // Active dot
+                dot.style.backgroundColor = "#e3fd55";
+                dot.style.transform = "scale(1.2)";
+              } else {
+                // Inactive dot
+                dot.style.backgroundColor = "white";
+                dot.style.transform = "scale(1)";
+              }
+            });
+          }
 
-          // Show current image
-          images[index].style.opacity = "1";
+          function showImage(index) {
+            if (isTransitioning) return;
+            isTransitioning = true;
 
-          // Update dots
-          updateDots(index);
+            // Hide all images
+            images.forEach((img, i) => {
+              img.style.opacity = "0";
+            });
 
-          // Trigger ripple effect
-          ripple.style.transform = "translateX(100%)";
+            // Show current image
+            images[index].style.opacity = "1";
 
-          setTimeout(() => {
-            ripple.style.transform = "translateX(-100%)";
-          }, 100);
+            // Update dots
+            updateDots(index);
 
-          setTimeout(() => {
-            isTransitioning = false;
-          }, 1000);
-        }
+            // Trigger ripple effect
+            ripple.style.transform = "translateX(100%)";
 
-        function nextImage() {
-          currentIndex = (currentIndex + 1) % images.length;
-          showImage(currentIndex);
-        }
+            setTimeout(() => {
+              ripple.style.transform = "translateX(-100%)";
+            }, 100);
 
-        // Auto-advance every 4 seconds
-        setInterval(nextImage, 5000);
+            setTimeout(() => {
+              isTransitioning = false;
+            }, 1000);
+          }
 
-        // Manual click to advance
-        const venueContainer =
-          document.querySelector('[id^="venue-"]').parentElement;
-        venueContainer.addEventListener("click", nextImage);
-
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-          dot.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent triggering venue container click
-            currentIndex = index;
+          function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
-          });
-        });
+          }
 
-        // Initialize first dot as active
-        updateDots(0);
+          // Auto-advance every 5 seconds
+          setInterval(nextImage, 5000);
+
+          // Manual click to advance
+          const venueContainer = images[0].parentElement;
+          venueContainer.addEventListener("click", nextImage);
+
+          // Dot click handlers
+          dots.forEach((dot, index) => {
+            dot.addEventListener("click", (e) => {
+              e.stopPropagation(); // Prevent triggering venue container click
+              currentIndex = index;
+              showImage(currentIndex);
+            });
+          });
+
+          // Initialize first dot as active
+          updateDots(0);
+        }
+
+        // Initialize both galleries
+        initGallery(mobileImages, mobileRipple, mobileDots);
+        initGallery(desktopImages, desktopRipple, desktopDots);
       }
 
       // Initialize venue slideshow
@@ -1121,60 +1305,63 @@
       function initPreloader() {
         const preloader = document.getElementById("preloader");
         const progressBar = document.getElementById("progressBar");
-        
+
         // Check if assets have been cached before
         if (localStorage.getItem("assetsCached") === "true") {
           // Assets already cached, skip preloader and go directly to age verification
           initAgeVerification();
           return;
         }
-        
+
         // Show preloader for first-time visitors
         preloader.classList.remove("hidden");
-        
+
         // List of local assets to preload
         const localAssets = [
           // Fonts
-          './assets/fonts/Anona_Extrabold_Italic.otf',
-          './assets/fonts/Anona_Extrabold.otf',
-          './assets/fonts/Anona_Semibold_Italic.otf',
-          './assets/fonts/Anona_Semibold.otf',
-          './assets/fonts/RobotoMono-VariableFont_wght.ttf',
-          
+          "./assets/fonts/Anona_Extrabold_Italic.otf",
+          "./assets/fonts/Anona_Extrabold.otf",
+          "./assets/fonts/Anona_Semibold_Italic.otf",
+          "./assets/fonts/Anona_Semibold.otf",
+          "./assets/fonts/RobotoMono-VariableFont_wght.ttf",
+
           // Images
-          './assets/images/animation-a.gif',
-          './assets/images/animation-b.gif',
-          './assets/images/animation-c.gif',
-          './assets/images/animation-d.gif',
-          './assets/images/line.svg',
-          './assets/images/oxperience_logo.svg',
-          './assets/images/powered-by.png',
-          './assets/images/ticket-fill.svg',
-          './assets/images/ticket-outline.svg',
-          './assets/images/venue-1.png',
-          './assets/images/venue-2.png',
-          './assets/images/venue-3.png',
-          './assets/images/early-bird-available.svg',
-          './assets/images/early-bird.svg',
-          './assets/images/available.svg'
+          "./assets/images/animation-a.gif",
+          "./assets/images/animation-b.gif",
+          "./assets/images/animation-c.gif",
+          "./assets/images/animation-d.gif",
+          "./assets/images/line.svg",
+          "./assets/images/oxperience_logo.svg",
+          "./assets/images/powered-by.png",
+          "./assets/images/ticket-fill.svg",
+          "./assets/images/ticket-outline.svg",
+          "./assets/images/venue-1.png",
+          "./assets/images/venue-2.png",
+          "./assets/images/venue-3.png",
+          "./assets/images/early-bird-available.svg",
+          "./assets/images/early-bird.svg",
+          "./assets/images/available.svg",
         ];
-        
+
         let loadedCount = 0;
         const totalAssets = localAssets.length;
-        
+
         function updateProgress() {
-          const percentage = Math.min(Math.round((loadedCount / totalAssets) * 100), 100);
+          const percentage = Math.min(
+            Math.round((loadedCount / totalAssets) * 100),
+            100
+          );
           progressBar.style.width = `${percentage}%`;
         }
-        
+
         function assetLoaded() {
           loadedCount++;
           updateProgress();
-          
+
           if (loadedCount >= totalAssets) {
             // All local assets loaded, mark as cached and hide preloader
             localStorage.setItem("assetsCached", "true");
-            
+
             setTimeout(() => {
               preloader.style.transition = "opacity 0.5s ease-out";
               preloader.style.opacity = "0";
@@ -1186,18 +1373,27 @@
             }, 500); // Small delay for smooth transition
           }
         }
-        
+
         // Preload fonts
-        const fontFaceObserver = new FontFaceObserver('Anona', { weight: 800, style: 'normal' });
-        fontFaceObserver.load().then(() => {
-          assetLoaded();
-        }).catch(() => {
-          assetLoaded(); // Continue even if image fails
+        const fontFaceObserver = new FontFaceObserver("Anona", {
+          weight: 800,
+          style: "normal",
         });
-        
+        fontFaceObserver
+          .load()
+          .then(() => {
+            assetLoaded();
+          })
+          .catch(() => {
+            assetLoaded(); // Continue even if image fails
+          });
+
         // Preload local images and fonts
-        localAssets.forEach(asset => {
-          if (asset.startsWith('./assets/images/') || asset.startsWith('./assets/fonts/')) {
+        localAssets.forEach((asset) => {
+          if (
+            asset.startsWith("./assets/images/") ||
+            asset.startsWith("./assets/fonts/")
+          ) {
             const img = new Image();
             img.onload = assetLoaded;
             img.onerror = assetLoaded; // Continue even if image fails
@@ -1205,7 +1401,7 @@
           }
         });
       }
-      
+
       // Initialize preloader on page load
       document.addEventListener("DOMContentLoaded", initPreloader);
     </script>
