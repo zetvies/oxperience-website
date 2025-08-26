@@ -632,41 +632,41 @@
               >
                 Rp180K
               </div>
-              <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank">
-                <div
-                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
-                >
-                  <img
-                    src="./assets/images/ticket-outline.svg"
-                    alt="ticket-button"
-                    class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                  />
-                  <img
-                    src="./assets/images/ticket-fill.svg"
-                    alt="ticket-button"
-                    class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  />
-                  <div
-                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
-                  >
-                    Buy Ticket
-                  </div>
-                </div>
-                <div
-                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
-                >
-                  <img
-                    src="./assets/images/ticket-fill.svg"
-                    alt="ticket-button"
-                    class="absolute top-0 left-0 h-full w-full object-contain"
-                  />
-                  <div
-                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
-                  >
-                    Buy Ticket
-                  </div>
-                </div>
-              </a>
+                             <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank" onclick="trackTicketClick()">
+                 <div
+                   class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
+                 >
+                   <img
+                     src="./assets/images/ticket-outline.svg"
+                     alt="ticket-button"
+                     class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                   />
+                   <img
+                     src="./assets/images/ticket-fill.svg"
+                     alt="ticket-button"
+                     class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                   />
+                   <div
+                     class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
+                   >
+                     Buy Ticket
+                   </div>
+                 </div>
+                 <div
+                   class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
+                 >
+                   <img
+                     src="./assets/images/ticket-fill.svg"
+                     alt="ticket-button"
+                     class="absolute top-0 left-0 h-full w-full object-contain"
+                   />
+                   <div
+                     class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
+                   >
+                     Buy Ticket
+                   </div>
+                 </div>
+               </a>
             </div>
           </div>
           <div
@@ -1424,8 +1424,27 @@
         });
       }
 
-      // Initialize preloader on page load
-      document.addEventListener("DOMContentLoaded", initPreloader);
+             // Initialize preloader on page load
+       document.addEventListener("DOMContentLoaded", initPreloader);
+       
+       // Google Analytics Event Tracking
+       function trackTicketClick() {
+         // Track the ticket button click event
+         gtag('event', 'click', {
+           'event_category': 'engagement',
+           'event_label': 'buy_ticket_button',
+           'value': 1
+         });
+         
+         // You can also track it as a custom event if you prefer
+         gtag('event', 'ticket_purchase_click', {
+           'event_category': 'ecommerce',
+           'event_label': 'ticket_button',
+           'value': 180000 // Ticket price in IDR
+         });
+         
+         console.log('Ticket button click tracked');
+       }
     </script>
   </body>
 </html>
