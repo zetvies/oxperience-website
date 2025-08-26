@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js"></script>
-    
   </head>
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
@@ -168,12 +167,12 @@
             class="hover:cursor-pointer hover:underline transition-colors"
             >Ticket</a
           >
-          <a
+          <!-- <a
             href="#venue"
             class="hover:cursor-pointer hover:underline pl-[2svh] ml-[2svh] border-l-[.25svh] transition-colors"
           >
             Venue
-          </a>
+          </a> -->
         </div>
 
         <!-- Mobile Hamburger Menu -->
@@ -252,13 +251,13 @@
             >
               Ticket
             </a>
-            <a
+            <!-- <a
               href="#venue"
               class="hover:cursor-pointer hover:underline transition-colors py-[2svh]"
               onclick="closeMobileMenu()"
             >
               Venue
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -592,7 +591,7 @@
         <div
           class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[1]"
         ></div>
-        <div class="flex flex-col h-[100svh] w-full">
+        <div class="flex flex-col lg:h-[100svh] w-full">
           <div
             class="absolute block lg:hidden bottom-[50svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
           >
@@ -633,41 +632,45 @@
               >
                 Rp180K
               </div>
-                             <a href="https://link.tiptip.id/AyvC64Mjr3j" target="_blank" onclick="trackTicketClick()">
-                 <div
-                   class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
-                 >
-                   <img
-                     src="./assets/images/ticket-outline.svg"
-                     alt="ticket-button"
-                     class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                   />
-                   <img
-                     src="./assets/images/ticket-fill.svg"
-                     alt="ticket-button"
-                     class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                   />
-                   <div
-                     class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
-                   >
-                     Buy Ticket
-                   </div>
-                 </div>
-                 <div
-                   class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
-                 >
-                   <img
-                     src="./assets/images/ticket-fill.svg"
-                     alt="ticket-button"
-                     class="absolute top-0 left-0 h-full w-full object-contain"
-                   />
-                   <div
-                     class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
-                   >
-                     Buy Ticket
-                   </div>
-                 </div>
-               </a>
+              <a
+                href="https://link.tiptip.id/AyvC64Mjr3j"
+                target="_blank"
+                onclick="trackTicketClick()"
+              >
+                <div
+                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group hidden lg:flex justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="./assets/images/ticket-outline.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                  />
+                  <img
+                    src="./assets/images/ticket-fill.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <div
+                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] group-hover:text-[#2f05f4] text-white transition-colors duration-300"
+                  >
+                    Buy Ticket
+                  </div>
+                </div>
+                <div
+                  class="lg:h-[20svh] lg:w-[68svh] w-[80svw] h-[24svw] relative group flex lg:hidden justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="./assets/images/ticket-fill.svg"
+                    alt="ticket-button"
+                    class="absolute top-0 left-0 h-full w-full object-contain"
+                  />
+                  <div
+                    class="font-bold text-[9svw] lg:text-[8svh] tracking-wider uppercase z-[15] text-[#2f05f4] transition-colors duration-300"
+                  >
+                    Buy Ticket
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
           <div
@@ -687,13 +690,12 @@
           </div>
         </div>
       </section>
-
       <section
-        id="venue"
-        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden lg:mt-[15svh]"
+        id="footer"
+        class="flex flex-col lg:h-[80svh] justify-between items-center lg:items-start lg:pl-[8svw] pb-[8svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[25svh]"
       >
         <div
-          class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
+          class="absolute hidden lg:block top-[0svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
         >
           <img
             src="./assets/images/animation-c.gif"
@@ -702,67 +704,35 @@
           />
         </div>
 
-        <div
-          class="uppercase font-bold lg:text-[4svh] text-[7svw] tracking-wider mb-[2svh] lg:mt-[10svh]"
-        >
-          Venue Information
+        <div class="text-[10svw] lg:text-[10svh] font-bold text-white uppercase z-[50]">
+          See you soon!
         </div>
-        <div class="flex">
-          <div class="relative">
-            <div
-              class="h-[36svw] lg:h-[31.5svw] lg:w-[70svw] w-[90svw] relative cursor-pointer group flex justify-center items-center overflow-hidden"
-            >
-              <img
-                src="./assets/images/venue-1.png"
-                alt="venue-1"
-                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out"
-                id="venue-1"
-              />
-              <img
-                src="./assets/images/venue-2.png"
-                alt="venue-2"
-                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-                id="venue-2"
-              />
-              <img
-                src="./assets/images/venue-3.png"
-                alt="venue-3"
-                class="absolute top-0 left-0 h-full w-full object-contain transition-all duration-1000 ease-in-out opacity-0"
-                id="venue-3"
-              />
-
-              <!-- Gradient ripple overlay -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-1000 ease-in-out"
-                id="ripple-overlay"
-              ></div>
+        <div class="z-[50] mt-[10svh] lg:mt-0">
+          <div class="flex flex-col lg:flex-row w-full items-center border-b-[.5svh] pb-[15svh] lg:pb-[3svh] border-[#d64532] justify-between lg:items-end w-[84svw]">
+            <div class="flex gap-[2svh] lg:gap-[5svh] flex-col lg:flex-row ">
+              <a
+                href="https://www.instagram.com/oxperience.id"
+                target="_blank"
+                class="flex font-roboto-mono lg:gap-[1svh] gap-[2svw] items-center"
+              >
+                <img src="/assets/images/instagram.svg" class="lg:h-[5svh] h-[9svw]" />
+                <div class="lg:text-[3svh] text-[6svw]">@oxperience.id</div>
+              </a>
+              <a
+                href="https://www.tiktok.com/@oxperience"
+                target="_blank"
+                class="flex font-roboto-mono lg:gap-[1svh] gap-[2svw] items-center"
+              >
+                <img src="/assets/images/tiktok.svg" class="lg:h-[5svh] h-[9svw]" />
+                <div class="lg:text-[3svh] text-[6svw]">@oxperience.id</div>
+              </a>
             </div>
-
-            <!-- Navigation dots -->
-            <div
-              class="absolute lg:bottom-[5svh] bottom-[5svw] lg:left-[35svw] left-[42.5svw] transform -translate-x-1/2 flex lg:space-x-[2svh] space-x-[2svw] z-[70]"
-            >
-              <div
-                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] h-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-                data-index="0"
-              ></div>
-              <div
-                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-                data-index="1"
-              ></div>
-              <div
-                class="lg:w-[2svh] lg:h-[2svh] w-[1.5svw] bg-white rounded-full cursor-pointer transition-all duration-300 shadow-lg"
-                data-index="2"
-              ></div>
-            </div>
+            <img src="/assets/images/oxva-white.svg" class="w-[30svw] h-auto lg:h-[20svh] lg:w-auto mt-[10svh] lg:mt-0" />
           </div>
+          <div class="lg:text-[2svh] text-[4svw] text-[#d64532] w-[84svw]  mt-[2svh]">2025 © Oxperience. All Rights Reserved.</div>
+      
         </div>
-        <div
-          class="mt-[1svh] font-roboto-mono lg:text-[3svh] text-[5svw] tracking-wider mb-[2svh]"
-        >
-          Plaza Barat, GBK
-        </div>
-      </section>
+         </section>
     </div>
 
     <script>
@@ -1086,9 +1056,9 @@
         const venueSection = document.getElementById("venue");
         const rect = ticketSection.getBoundingClientRect();
 
-        // Calculate combined height of ticket and venue sections
+        // Calculate height - only use ticket section if venue section doesn't exist
         const ticketHeight = ticketSection.offsetHeight;
-        const venueHeight = venueSection.offsetHeight;
+        const venueHeight = venueSection ? venueSection.offsetHeight : 0;
         const combinedHeight = ticketHeight + venueHeight;
 
         if (rect.top <= 0) {
@@ -1129,7 +1099,7 @@
 
       // Venue slideshow with gradient ripple effect
       function initVenueSlideshow() {
-        // Initialize mobile venue gallery
+        // Initialize mobile venue gallery (only if elements exist)
         const mobileImages = [
           document.getElementById("venue-1-mobile"),
           document.getElementById("venue-2-mobile"),
@@ -1138,7 +1108,7 @@
         const mobileRipple = document.getElementById("ripple-overlay-mobile");
         const mobileDots = document.querySelectorAll("[data-index]");
 
-        // Initialize desktop venue gallery
+        // Initialize desktop venue gallery (only if elements exist)
         const desktopImages = [
           document.getElementById("venue-1"),
           document.getElementById("venue-2"),
@@ -1220,9 +1190,13 @@
           updateDots(0);
         }
 
-        // Initialize both galleries
-        initGallery(mobileImages, mobileRipple, mobileDots);
-        initGallery(desktopImages, desktopRipple, desktopDots);
+        // Initialize both galleries (only if they exist)
+        if (mobileImages[0] && mobileRipple && mobileDots.length) {
+          initGallery(mobileImages, mobileRipple, mobileDots);
+        }
+        if (desktopImages[0] && desktopRipple && desktopDots.length) {
+          initGallery(desktopImages, desktopRipple, desktopDots);
+        }
       }
 
       // Initialize venue slideshow
@@ -1425,27 +1399,27 @@
         });
       }
 
-             // Initialize preloader on page load
-       document.addEventListener("DOMContentLoaded", initPreloader);
-       
-       // Google Analytics Event Tracking
-       function trackTicketClick() {
-         // Track the ticket button click event
-         gtag('event', 'click', {
-           'event_category': 'engagement',
-           'event_label': 'buy_ticket_button',
-           'value': 1
-         });
-         
-         // You can also track it as a custom event if you prefer
-         gtag('event', 'ticket_purchase_click', {
-           'event_category': 'ecommerce',
-           'event_label': 'ticket_button',
-           'value': 180000 // Ticket price in IDR
-         });
-         
-         console.log('Ticket button click tracked');
-       }
+      // Initialize preloader on page load
+      document.addEventListener("DOMContentLoaded", initPreloader);
+
+      // Google Analytics Event Tracking
+      function trackTicketClick() {
+        // Track the ticket button click event
+        gtag("event", "click", {
+          event_category: "engagement",
+          event_label: "buy_ticket_button",
+          value: 1,
+        });
+
+        // You can also track it as a custom event if you prefer
+        gtag("event", "ticket_purchase_click", {
+          event_category: "ecommerce",
+          event_label: "ticket_button",
+          value: 180000, // Ticket price in IDR
+        });
+
+        console.log("Ticket button click tracked");
+      }
     </script>
   </body>
 </html>
