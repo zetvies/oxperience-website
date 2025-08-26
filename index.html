@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-35XBJTY5KK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-35XBJTY5KK");
+    </script>
   </head>
   <body
     class="bg-[#c4341e] text-white h-[100svh] w-screen text-[3svh] relative overflow-x-hidden"
@@ -536,7 +550,7 @@
           class="flex justify-center w-full mt-[4svh] lg:mb-[10svh] mb-[8svh] lg:mb-0 z-[50]"
         >
           <div
-            class="text-[3svh] font-bold text-white uppercase bg-[#c4341e] lg:ml-[20svh] rounded-full px-[2svh] py-[1svh] "
+            class="text-[3svh] font-bold text-white uppercase bg-[#c4341e] lg:ml-[20svh] rounded-full px-[2svh] py-[1svh]"
           >
             and more to come!
           </div>
@@ -578,16 +592,15 @@
           class="absolute top-0 left-0 w-full h-[30svh] bg-gradient-to-b from-[#c33723] to-transparent z-[1]"
         ></div>
         <div class="flex flex-col h-[100svh] w-full">
-          
-        <div
-          class="absolute block lg:hidden bottom-[50svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
-        >
-          <img
-            src="./assets/images/animation-a.gif"
-            alt="animation-a"
-            class="h-[120svh] w-[120svh] object-cover"
-          />
-        </div>
+          <div
+            class="absolute block lg:hidden bottom-[50svh] left-[0svw] bg-black-50 z-[10] pointer-events-none"
+          >
+            <img
+              src="./assets/images/animation-a.gif"
+              alt="animation-a"
+              class="h-[120svh] w-[120svh] object-cover"
+            />
+          </div>
           <div
             id="tickets"
             class="uppercase font-bold text-[7svw] lg:text-[4svh] tracking-wider mt-[20svh] z-[50]"
@@ -672,12 +685,11 @@
             </div>
           </div>
         </div>
-
       </section>
 
       <section
         id="venue"
-        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw]  pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden lg:mt-[15svh]"
+        class="flex flex-col justify-center items-center lg:items-start lg:pl-[8svw] pb-[30svh] lg:pb-[15svh] relative z-[50] overflow-hidden lg:mt-[15svh]"
       >
         <div
           class="absolute hidden lg:block top-[20svh] right-[-60svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
