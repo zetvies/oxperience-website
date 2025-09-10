@@ -325,10 +325,17 @@
         >
           X DAYS TO GO
         </div>
-        <div id="scrollDownIndicator" class="uppercase flex gap-[2svh] absolute top-[80svh] justify-center items-center left-0 right-0 w-full text-center text-[2.2svh] mt-[8svh] transition-opacity duration-500 ease-in-out">
-          <div><img src="./assets/images/arrow-down.svg" class="h-[2.6svh] w-auto text-white" /></div>
+        <div
+          id="scrollDownIndicator"
+          class="uppercase flex gap-[2svh] absolute top-[80svh] justify-center items-center left-0 right-0 w-full text-center text-[2.2svh] mt-[8svh] transition-opacity duration-500 ease-in-out"
+        >
+          <div>
+            <img
+              src="./assets/images/arrow-down.svg"
+              class="h-[2.6svh] w-auto text-white"
+            />
+          </div>
           <div>Scroll Down</div>
-          
         </div>
       </section>
       <section
@@ -514,39 +521,65 @@
         class="w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
       >
         <section class="lg:ml-[12svh] mt-[20svh]">
-          <div class="flex flex-col lg:flex-row">
+          <div class="flex flex-col">
             <div
               id="lineup"
               class="uppercase font-bold text-[7svw] mb-[4svh] lg:text-[4svh] tracking-wider z-[50] w-full lg:w-fit justify-center flex"
             >
               Line Up
             </div>
-            <div
-              class="flex flex-col lg:flex-row lg:ml-[8svh] gap-[4svh] z-[20]"
-            >
-              <div class="relative">
-                <div
-                  class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
-                >
-                  Isyana<br />Sarasvati
+            <div class="flex flex-col lg:flex-row">
+              <div
+                class="flex flex-col lg:flex-row gap-[4svh] z-[20]"
+              >
+                <div class="relative">
+                  <div
+                    class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                  >
+                    Isyana<br />Sarasvati
+                  </div>
+                  <img
+                    src="./assets/images/isyana.png"
+                    alt="lineup-1"
+                    class="lg:h-[50svh] h-auto w-[80svw] lg:w-auto"
+                  />
                 </div>
-                <img
-                  src="./assets/images/isyana.png"
-                  alt="lineup-1"
-                  class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
-                />
-              </div>
-              <div class="relative lg:mt-[5svh]">
-                <div
-                  class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
-                >
-                  HIVI!
+                <div class="relative lg:mt-[5svh]">
+                  <div
+                    class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                  >
+                    HIVI!
+                  </div>
+                  <img
+                    src="./assets/images/hivi.png"
+                    alt="lineup-2"
+                    class="lg:h-[50svh] h-auto w-[80svw] lg:w-auto"
+                  />
                 </div>
-                <img
-                  src="./assets/images/hivi.png"
-                  alt="lineup-2"
-                  class="lg:h-[60svh] h-auto w-[80svw] lg:w-auto"
-                />
+                <div class="relative">
+                  <div
+                    class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[9svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                  >
+                    Nadin Amizah
+                  </div>
+                  <img
+                    src="./assets/images/nadin.png"
+                    alt="lineup-1"
+                    class="lg:h-[50svh] h-auto w-[80svw] lg:w-auto"
+                  />
+                </div>
+                <div class="relative lg:mt-[5svh]">
+                  <div
+                    class="absolute w-[98.6%] flex items-center justify-center text-center py-[1svh] lg:text-[5svh] text-[8svw] lg:leading-[5svh] leading-[9svw] lg:bottom-[3svh] bottom-[9svw] left-[.7%] text-[2svh] text-white uppercase font-bold bg-[#c4341e]"
+                  >
+                    The Lantis
+                  </div>
+                  <img
+                    src="./assets/images/the-lantis.png"
+                    alt="lineup-2"
+                    class="lg:h-[50svh] h-auto w-[80svw] lg:w-auto"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -709,18 +742,25 @@
           />
         </div>
 
-        <div class="text-[10svw] lg:text-[10svh] font-bold text-white uppercase z-[50]">
+        <div
+          class="text-[10svw] lg:text-[10svh] font-bold text-white uppercase z-[50]"
+        >
           See you soon!
         </div>
         <div class="z-[50] mt-[10svh] lg:mt-0">
-          <div class="flex flex-col lg:flex-row w-full items-center border-b-[.5svh] pb-[15svh] lg:pb-[3svh] border-[#d64532] justify-between lg:items-end w-[84svw]">
-            <div class="flex gap-[2svh] lg:gap-[5svh] flex-col lg:flex-row ">
+          <div
+            class="flex flex-col lg:flex-row w-full items-center border-b-[.5svh] pb-[15svh] lg:pb-[3svh] border-[#d64532] justify-between lg:items-end w-[84svw]"
+          >
+            <div class="flex gap-[2svh] lg:gap-[5svh] flex-col lg:flex-row">
               <a
                 href="https://www.instagram.com/oxperience.id"
                 target="_blank"
                 class="flex font-roboto-mono lg:gap-[1svh] gap-[2svw] items-center"
               >
-                <img src="/assets/images/instagram.svg" class="lg:h-[5svh] h-[9svw]" />
+                <img
+                  src="/assets/images/instagram.svg"
+                  class="lg:h-[5svh] h-[9svw]"
+                />
                 <div class="lg:text-[3svh] text-[6svw]">@oxperience.id</div>
               </a>
               <a
@@ -728,16 +768,25 @@
                 target="_blank"
                 class="flex font-roboto-mono lg:gap-[1svh] gap-[2svw] items-center"
               >
-                <img src="/assets/images/tiktok.svg" class="lg:h-[5svh] h-[9svw]" />
+                <img
+                  src="/assets/images/tiktok.svg"
+                  class="lg:h-[5svh] h-[9svw]"
+                />
                 <div class="lg:text-[3svh] text-[6svw]">@oxperience.id</div>
               </a>
             </div>
-            <img src="/assets/images/oxva-white.svg" class="w-[30svw] h-auto lg:h-[20svh] lg:w-auto mt-[10svh] lg:mt-0" />
+            <img
+              src="/assets/images/oxva-white.svg"
+              class="w-[30svw] h-auto lg:h-[20svh] lg:w-auto mt-[10svh] lg:mt-0"
+            />
           </div>
-          <div class="lg:text-[2svh] text-[4svw] text-[#d64532] w-[84svw]  mt-[2svh]">2025 © Oxperience. All Rights Reserved.</div>
-      
+          <div
+            class="lg:text-[2svh] text-[4svw] text-[#d64532] w-[84svw] mt-[2svh]"
+          >
+            2025 © Oxperience. All Rights Reserved.
+          </div>
         </div>
-         </section>
+      </section>
     </div>
 
     <script>
@@ -1409,13 +1458,16 @@
 
       // Scroll Down Indicator Visibility Control
       function initScrollDownIndicator() {
-        const scrollDownIndicator = document.getElementById("scrollDownIndicator");
-        
+        const scrollDownIndicator = document.getElementById(
+          "scrollDownIndicator"
+        );
+
         if (!scrollDownIndicator) return;
-        
+
         function updateScrollDownVisibility() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+
           if (scrollTop === 0) {
             // Show the indicator when at the top
             scrollDownIndicator.style.opacity = "1";
@@ -1424,14 +1476,14 @@
             scrollDownIndicator.style.opacity = "0";
           }
         }
-        
+
         // Update on scroll
         window.addEventListener("scroll", updateScrollDownVisibility);
-        
+
         // Initial check
         updateScrollDownVisibility();
       }
-      
+
       // Initialize scroll down indicator
       initScrollDownIndicator();
 
