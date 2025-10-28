@@ -210,9 +210,9 @@
             About
           </a>
           <a
-            href="#tickets"
+            href="#lineup"
             class="hover:cursor-pointer hover:underline transition-colors"
-            >Ticket</a
+            >Line Up</a
           >
           <!-- <a
             href="#venue"
@@ -220,6 +220,14 @@
           >
             Venue
           </a> -->
+          <a
+            href="https://link.tiptip.id/AyvC64Mjr3j"
+            target="_blank"
+            onclick="trackTicketClick()"
+            class="ml-[4svh] px-[2svh] py-[2svh] bg-[#e3fd55] text-[#2f05f4] font-anona font-bold uppercase hover:bg-[#d0e448] transition-colors rounded"
+          >
+            Buy Ticket
+          </a>
         </div>
 
         <!-- Mobile Hamburger Menu -->
@@ -564,7 +572,6 @@
       </section>
 
       <section
-        id="tickets"
         class="w-full relative z-[15] flex flex-col px-[8svw] lg:mt-[20svh] lg:mt-0 items-center lg:items-start"
       >
         <section class="mt-[20svh]">
@@ -832,9 +839,13 @@
           </div>
         </div>
       </section>
+      
+      <!-- Bottom padding for mobile floating button -->
+      <div class="lg:hidden h-[20svh]"></div>
+      
       <section
         id="footer"
-        class="flex flex-col lg:h-[80svh] justify-between items-center lg:items-start lg:pl-[8svw] pb-[8svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[25svh]"
+        class="flex flex-col lg:h-[80svh] justify-between items-center lg:items-start lg:pl-[8svw] pb-[25svh] lg:pb-[15svh] relative z-[50] overflow-hidden mt-[25svh]"
       >
         <div
           class="absolute hidden lg:block top-[0svh] right-[-40svw] w-full h-full bg-black-50 z-[10] pointer-events-none"
@@ -891,6 +902,18 @@
           </div>
         </div>
       </section>
+    </div>
+
+    <!-- Mobile Floating Buy Ticket Button -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 z-[99] px-[5svw] py-[3svh] ">
+      <a
+        href="https://link.tiptip.id/AyvC64Mjr3j"
+        target="_blank"
+        onclick="trackTicketClick()"
+        class="w-full flex items-center justify-center px-[6svw] py-[2svh] bg-[#e3fd55] text-[#2f05f4] font-anona font-bold uppercase hover:bg-[#d0e448] transition-colors rounded"
+      >
+        Buy Ticket
+      </a>
     </div>
 
     <script>
